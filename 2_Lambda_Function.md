@@ -6,7 +6,7 @@ The first step is to create our function written in Python.
 2. In the search bar enter "Lamba" and click on **Lambda**
 ## Create our Function
 1. Click **Create a function**
-    1. Author from scracth
+    1. Author from scratch
     2. Function name: **myIPFunction**
     3. Runtime: *latest version of Python*
     4. Leave the rest at defaults, click **Create function**
