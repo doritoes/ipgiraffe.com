@@ -11,13 +11,13 @@ The first step is to create our function written in Python.
     3. Runtime: *latest version of Python*
     4. Leave the rest at defaults, click **Create function**
 2. In the *Code Source* pane, replace the example function with one of the functions listed below
-    - (lambda_test.py) - *easy to read simple version used in testing*
-    - (lambda_handler.py) - *full function used to build (www.ipgiraffe.com)
+    - [lambda_test.py](lambda_test.py) - *easy to read simple version used in testing*
+    - [lambda_handler.py](lambda_handler.py) - *full function used to build (www.ipgiraffe.com)*
 3. Click **Deploy**
 4. Click **Test**
     - For the test event
       - Event name: **Test**
-      - Test Event JSON: (test_event.json)
+      - Test Event JSON: [test_event.json](test_event.json)
         - This provides a dummy IP address for the test to work
       - Click **Save**
     - Click **Test** and the test should succeed.
