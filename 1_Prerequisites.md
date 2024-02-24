@@ -10,6 +10,6 @@ Required knowledge and understanding
   - AWS Lamba natively supports Java, Go, PowerShell, Node. js, C#, Python, and Ruby code, and provides a Runtime API which allows you to use any additional programming languages to author your functions.[[1](https://aws.amazon.com/lambda/faqs/)]
 
 Required resources
-- You will need a [[login to the AWS Management Console]](https://console.aws.amazon.com)
+- You will need a [login to the AWS Management Console](https://console.aws.amazon.com)
 - You will need to fund your experiments and projects on AWS using a credit card
   - CAUTION It is your responsibility to clean up everything you don't need, because AWS payment terms and conditions apply!
