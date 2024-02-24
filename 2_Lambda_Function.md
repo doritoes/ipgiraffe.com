@@ -24,3 +24,10 @@ The first step is to create our function written in Python.
 
 # Important Notes
 If you create a function URL and try to test it in you will get an internal server error. This is because our Lambda function depends on the API gateway to provide the IP address.
+
+# Learn More
+You can reduce your HTML to use less memory and transfer less bytes across the Internet using "minification" techniches. Trying pasting HTML code into the online minifier at (https://codebeautify.org/minify-html)
+
+Similarly you can minify your Python code at (https://python-minifier.com/)
+
+Using both, I created a 1460 byte version of the function, which stated at 2.96 KB.
