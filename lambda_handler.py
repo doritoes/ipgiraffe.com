@@ -7,8 +7,7 @@ def lambda_handler(event, context):
         client_ip = event['sourceIp']
     else:
         client_ip = "IP Address Not Found"
-
-    html_response = f"""
+    html_response = """
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +69,7 @@ def lambda_handler(event, context):
     </header>
     <main>
       <p>Your computer&apos;s IP address is:</p>
-      <h2>{client_ip}</h2>
+      <h2>""" + client_ip + """</h2>
 	  <p class="copyright">&copy; 2024 ipgiraffe.com is hosted on AWS Lambda</p>
 	</main>
       <!-- 
