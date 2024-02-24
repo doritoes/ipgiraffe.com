@@ -1,5 +1,5 @@
 # Create API Gateway
-The next step is to create the API Gateway
+The next step is to create the API Gateway. This acts as a "front door" for your Lambda function, providing a managed HTTP endpoint that clients can interact with to trigger the Lambda and receive responses.
 
 ## Log in to AWS Console and Navigate to API Gateway
 1. Browse to (https://console.aws.amazon.com) and log in
