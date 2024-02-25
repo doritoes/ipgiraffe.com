@@ -5,7 +5,7 @@ The next step is to create the API Gateway. This acts as a "front door" for your
 1. Browse to (https://console.aws.amazon.com) and log in
 2. In the search bar enter "API Gateway" and click on **API Gateway**
 
-## Create our Function
+## Create our API
 1. Next to "REST API", click **Build**
 2. New API
 3. API name: **myIP-api**
