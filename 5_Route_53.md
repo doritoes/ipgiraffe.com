@@ -27,10 +27,9 @@ The final step to bring (https://www.ipgiraffe.com) is pointing our domain to th
     - Routing policy: **Simple routing** (default)
     - Click **Create records**
 
-
-
 ## Testing
-1. From inside Route 353 click **Hosted zones** from the menu on the left
+You can test DNS records from inside Route 53.
+1. Click **Hosted zones** from the menu on the left
 2. Click on your domain (ex., ipgiraffe.com)
 3. Click **Test record**
     - First test - A Record
@@ -43,18 +42,3 @@ The final step to bring (https://www.ipgiraffe.com) is pointing our domain to th
       - Record type: **CNAME**
       - Click **Get response**
       - Note the alias points to ipgiraffe.com
-3. nslookup
-    - from a command line test both DNS lookups (allow type for DNS propagation)
-      - ```nslookup ipgiraffe.com```
-      - ```nslookup www.ipgiraffe.com```
-4. Browser testing:
-    - HTTP to the domain name (i.e., http://ipgiraffe.com which should redirect to https)
-    - HTTPS to the domain name (i.e., https://ipgiraffe.com)
-    - HTTP to the alias (i.e., http://www.ipgiraffe.com which should redirect to https)
-    - HTTPS to the alias (i.e., https://www.ipgiraffe.com)
-5. DNS global propagation
-    - Visit https://dnschecker.org/
-    - Enter your domain name and click Search
-    - Examples:
-      - https://dnschecker.org/#A/ipgiraffe.com
-      - https://dnschecker.org/#CNAME/www.ipgiraffe.com
