@@ -42,7 +42,7 @@ def lambda_handler(event, context):
       }
       main {
         background: #f0e5c9;
-        color: #70401a;
+        color: #784820;
         border: 4px double #a06e3b;
         font-size: 1.2em;
         line-height: 1.6; 
