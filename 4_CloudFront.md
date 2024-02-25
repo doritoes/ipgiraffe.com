@@ -19,6 +19,7 @@ If prompted for a distributio ntype, select "Web" distribution and proceed.
   - Name: **myIP-backend-prod**
   - Leave the remaining Origin settings at their default values
   - Default cache behavior leave at default values
+  - Click **Create Origin**
   - Viewer
     - **Redirect HTTP to HTTPS**
     - Allowed HTTP methods: **GET, HEAD**
@@ -67,5 +68,3 @@ On the left menu bar below Distributions there is Policies.
     - Click **Save changes**
 
 The correct list IP address will now be returned.
-
-
