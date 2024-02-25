@@ -13,6 +13,7 @@ A Windows 11 workstation was used for the process below.
 5. Build the Executable
     - Download and initialize dependencies (i.e., AWS Lambda Go libraries)
       - `go mod init github.com/your-username/project-name`
+      - `go mod init lambda-test`
       - `go get github.com/aws/aws-lambda-go/events`
       - `go get github.com/aws/aws-lambda-go/lambda`
     - Set environment variables (temporary for this session)
