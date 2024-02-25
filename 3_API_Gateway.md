@@ -56,7 +56,7 @@ The currrent results you will get are JSON. For example:
 4. Customize the template
     - Content type: <u>type in</u> **text/html**
 	  - Template body: [response_template.vtl](response_template.vtl)
-    - Click Save
+    - Click **Save**
 5. Click **Deploy API** and deploy to Prod
 6. Copy the Invoke URL to a browser. (you may need to refresh the page)
 
@@ -75,9 +75,8 @@ You will now get HTML, but it is still interpreted as JSON by the browser.
 1. Click on **Integration response** or select it from the ribbon menu.
 2. Next to Response 200 click **Edit**
 3. Change Content-Type from application/json to **text/html**
-4. Click Save
+4. Click **Save**
 5. Click **Deploy API** and deploy to Prod
 6. Copy the Invoke URL to a browser. (you may need to refresh the page or be patient as the changes get deployed)
 
 You will now have a web page.
-
