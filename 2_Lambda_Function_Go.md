@@ -21,10 +21,13 @@ A Windows 11 workstation was used for the process below.
       - `GOOS=linux`
       - x86_64 architecture: `GOARCH=amd64`
       - arm64 archtecture: `GOARCH=arm64`
-      - Windows example
+      - Windows cmd example
         - `SET GOOS=linux`
         - `SET GOARCH=amd64`
         - `go env`
+      - Windows powershell example
+        - `$ENV:GOOS = "linux"`
+        - `$ENV:GOARCH = "amd64"`
     - Build command
       - Run the command in your project folder
       - `go build main.go`
@@ -32,7 +35,6 @@ A Windows 11 workstation was used for the process below.
 6. Create the Zip file
     - Create a zip file named **go.zip**
     - Add the execuate we just created: `main`
-    - Add the bootstrap script [bootstrap.sh](bootstrap.sh)
 7. Create the Lambda function
     - Author from scratch
     - Function name: **myIPFunctionGo**
@@ -41,53 +43,24 @@ A Windows 11 workstation was used for the process below.
     - Click **Create function**
     - In the *Code source* pane, click **Upload from** > **.zip file**
     - Click **Upload**, select your **go.zip** file code, and click **Save**
-      - upload a .zip file
-      - create a ZIP file containiner your exectable `main`
-      - upload the ZIP file
+    - Under *Code* > *Runtime settings* click **Edit**
+    - Change the handler to **main.handler((
+    - ** continue writing here **     
     - Click **Test** then the orange **Test** button
       
 Currently this is failing
 
 ~~~
-2024-02-25T14:36:29.024-05:00
-INIT_START Runtime Version: provided:al2023.v12	Runtime Version ARN: arn:aws:lambda:us-east-1::runtime:136ed310b999b334fac0d4a087dd5c3d4f95efe17b434ba3c1eefb429c00f150
+{
+  "errorType": "Runtime.InvalidEntrypoint",
+  "errorMessage": "RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Error: fork/exec /var/task/bootstrap: no such file or directory"
+}
 
-Copy
-INIT_START Runtime Version: provided:al2023.v12 Runtime Version ARN: arn:aws:lambda:us-east-1::runtime:136ed310b999b334fac0d4a087dd5c3d4f95efe17b434ba3c1eefb429c00f150
-
-2024-02-25T14:36:29.024-05:00
-INIT_REPORT Init Duration: 0.21 ms	Phase: init	Status: error	Error Type: Runtime.InvalidEntrypoint
-
-Copy
-INIT_REPORT Init Duration: 0.21 ms Phase: init Status: error Error Type: Runtime.InvalidEntrypoint
-
-2024-02-25T14:36:29.043-05:00
-INIT_REPORT Init Duration: 0.23 ms	Phase: invoke	Status: error	Error Type: Runtime.InvalidEntrypoint
-
-Copy
-INIT_REPORT Init Duration: 0.23 ms Phase: invoke Status: error Error Type: Runtime.InvalidEntrypoint
-
-2024-02-25T14:36:29.053-05:00
-START RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Version: $LATEST
-
-Copy
-START RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Version: $LATEST
-
-2024-02-25T14:36:29.075-05:00
-RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Error: Couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap]
+INIT_REPORT Init Duration: 0.79 ms	Phase: init	Status: error	Error Type: Runtime.InvalidEntrypoint
+INIT_REPORT Init Duration: 0.61 ms	Phase: invoke	Status: error	Error Type: Runtime.InvalidEntrypoint
+START RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Version: $LATEST
+RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Error: fork/exec /var/task/bootstrap: no such file or directory
 Runtime.InvalidEntrypoint
-
-Copy
-RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Error: Couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap] Runtime.InvalidEntrypoint
-
-2024-02-25T14:36:29.075-05:00
-END RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c
-
-Copy
-END RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c
-
-2024-02-25T14:36:29.075-05:00
-REPORT RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c	Duration: 30.32 ms	Billed Duration: 31 ms	Memory Size: 128 MB	Max Memory Used: 2 MB	
-
-Copy
+END RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20
+REPORT RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20	Duration: 10.05 ms	Billed Duration: 11 ms	Memory Size: 128 MB	Max Memory Used: 3 MB	
 ~~~
