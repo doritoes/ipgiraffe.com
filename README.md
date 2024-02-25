@@ -42,8 +42,8 @@ Here are the goals I have for this project. If you would like to encourage me to
 3. [Create API Gateway](3_API_Gateway.md)
 4. [Create CloudFront](4_CloudFront.md)
 5. [Update DNS](5_Route_53.md)
-6. [Adding Regions](6_Regions.md)
-7. [Testing and Monitoring](7_Testing_and_Monitoring.md)
+6. [Testing and Monitoring](6_Testing_and_Monitoring.md)
+7. [Adding Regions](7_Regions.md)
 
 # References
 My favorite IP address checking web sites:
