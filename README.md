@@ -8,7 +8,7 @@ This demonstration site has the following features:
 - No ads
 - Single function with no external images, scripts, or stylesheets (there is one Google font that is loaded in the browser)
 - Just the IP address, no extra information
-- Extremely cheap to operate
+- Extremely cheap to operate (there aren't any logs we have to store to a S3 bucket)
 This breaks the mold of the typical Lambda use case
 - Does not return JSON, but instead HTML
 - Not an API with an authentication backend
