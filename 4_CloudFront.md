@@ -7,6 +7,7 @@ It is possible to  configure health checks within CloudFront to automatically ro
 ## Log in to AWS Console and Navigate to CloudFront
 1. Browse to (https://console.aws.amazon.com) and log in
 2. In the search bar enter "CloudFront" and click on **CloudFront**
+   
 ## Create a CloudFront Distribution
 If prompted for a distributio ntype, select "Web" distribution and proceed.
 
