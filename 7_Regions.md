@@ -141,7 +141,7 @@ Overview
 First we will generate traffic source from different global regions, followed by confirming traffic is reaching all regions.
 #### Generate traffic with Online Speed Test Tools
 These have limited locations, but can quickly renerate traffic to your different regions.
-- Pingdom: https://tools.pingdom.com/ (select from *Test from**)
+- Pingdom: https://tools.pingdom.com/ (select from *Test from*)
 - WebPageTest: https://www.webpagetest.org/ (advanced options let you select more locations)
 
 ####  Generate traffic with VPN Services
