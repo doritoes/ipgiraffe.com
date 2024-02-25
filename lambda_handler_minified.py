@@ -1,0 +1,7 @@
+import json
+def A(event,context):
+	D='sourceIp';B='xForwardedFor';A=event
+	if B in A and A[B]:C=A[B].split(',')[0]
+	elif D in A:C=A[D]
+	else:C='IP Address Not Found'
+	E='\n<!DOCTYPE html><html lang="en"><head><title>ipgiraffe.com</title><style>@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap);body{background-color:#f0e5c9;background-image:radial-gradient(circle farthest-side,#a06e3b 50%,transparent 55%),radial-gradient(circle farthest-side,#a06e3b 50%,transparent 55%);background-size:80px 80px;background-position:0 0,40px 40px;font-family:Arial,Helvetica,sans-serif;font-size:16px}header{background:#f0e5c9;color:#a06e3b;border:4px solid #a06e3b;border-radius:10px;margin:10px;padding:5px;text-align:center;display:flex;align-items:center;justify-content:center}header h1{font-family:Poppins,Arial,Helvetica,sans-serif}main{background:#f0e5c9;color:#784820;border:4px double #a06e3b;font-size:1.2em;line-height:1.6;border-radius:10px;margin:10px;padding:20px;text-align:center;align-items:center;justify-content:center}main h2{margin-bottom:15px;font-family:Poppins,Arial,Helvetica,sans-serif}.copyright{font-size:.7em}</style></head><body><header><h1>ipgiraffe.com</h1></header><main><p>Your IP address is:</p><h2>client_ip</h2><p class="copyright">&copy; 2024 ipgiraffe.com is hosted on AWS Lambda</p></main></body></html>\n    ';return{'statusCode':200,'body':E,'headers':{'Content-Type':'text/html'}}
