@@ -27,8 +27,11 @@ A Windows 11 workstation was used for the process below.
       - Run the command in your project folder
       - `go build main.go`
       - this produces an executable file named `main`
-    - Create a zip file named **go.zip** with the file `main` inside
-6. Create the Lambda function
+6. Create the Zip file
+    - Create a zip file named **go.zip**
+    - Add the execuate we just created: `main`
+    - Add the bootstrap script [bootstrap.sh](bootstrap.sh)
+7. Create the Lambda function
     - Author from scratch
     - Function name: **myIPFunctionGo**
     - Runtime: **Amazon Linux**
