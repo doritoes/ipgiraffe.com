@@ -50,20 +50,21 @@ If prompted for a distributio ntype, select "Web" distribution and proceed.
     - **TAKE NOTE** of the *distribution domain name* - you will need this (my example: https://d3tv86pu6k48e5.cloudfront.net)
 
 ## Fix the incorrect IP address
+The source IP that the Lamba function sees will be the last cloudfront host in the path. That's not what we want. We want the client IP address.
 
+We will configure the X-Forwarded-For header to get the client's real IP address.
 
-The source IP will be the last cloudfront host in the path. You want to read the X-Forwarded-For header to get the client's real IP address
+On the left menu bar below Distributions there is Policies.
 
-On the left menu bar below Distributions there is Policies. Click on it.
+1. Click on **Policies**
+2. Click **Origin Request** from the ribbon menu
+3. In the *Custom policies* pane, click **Create origin request policy**
+    - Name: **IP-Forwarding-Policy**
+    - Headers
+      - Select **Include the following headers**
+      - Add header > Click Add custom > X-Forwarded-For
+    - Click **Save changes**
 
-Select Origin Request from the ribbon menu
-
-In the Custom policies pane, click Create origin request policy
-Name: IP-Forwarding-Policy
-Headers
-	• Include the following headers
-	• Add header > Click Add custom > X-Forwarded-For
-Click Save changes
-![image](https://github.com/doritoes/ipgiraffe.com/assets/39832079/18a48979-8aee-400d-acbd-ebaa504d69c6)
+The correct list IP address will now be returned.
 
 
