@@ -19,7 +19,7 @@ A Windows 11 workstation was used for the process below.
       - `GOOS=linux`
       - x86_64 architecture: `GOARCH=amd64`
       - arm64 archtecture: `GOARCH=arm64`
-      - Windows
+      - Windows example
         - `SET GOOS=linux`
         - `SET GOARCH=amd64`
         - `go env`
@@ -27,13 +27,62 @@ A Windows 11 workstation was used for the process below.
       - Run the command in your project folder
       - `go build main.go`
       - this produces an executable file named `main`
+    - Create a zip file named **go.zip** with the file `main` inside
 6. Create the Lambda function
-    - Name
-    - Runtime
-    - Architecture
-    - Upload code
+    - Author from scratch
+    - Function name: **myIPFunctionGo**
+    - Runtime: **Amazon Linux**
+    - Architecture: the architure you build your function for
+    - Click **Create function**
+    - In the *Code source* pane, click **Upload from** > **.zip file**
+    - Click **Upload**, select your **go.zip** file code, and click **Save**
       - upload a .zip file
       - create a ZIP file containiner your exectable `main`
       - upload the ZIP file
-    - click Create Function
+    - Click **Test** then the orange **Test** button
       
+Currently this is failing
+
+~~~
+2024-02-25T14:36:29.024-05:00
+INIT_START Runtime Version: provided:al2023.v12	Runtime Version ARN: arn:aws:lambda:us-east-1::runtime:136ed310b999b334fac0d4a087dd5c3d4f95efe17b434ba3c1eefb429c00f150
+
+Copy
+INIT_START Runtime Version: provided:al2023.v12 Runtime Version ARN: arn:aws:lambda:us-east-1::runtime:136ed310b999b334fac0d4a087dd5c3d4f95efe17b434ba3c1eefb429c00f150
+
+2024-02-25T14:36:29.024-05:00
+INIT_REPORT Init Duration: 0.21 ms	Phase: init	Status: error	Error Type: Runtime.InvalidEntrypoint
+
+Copy
+INIT_REPORT Init Duration: 0.21 ms Phase: init Status: error Error Type: Runtime.InvalidEntrypoint
+
+2024-02-25T14:36:29.043-05:00
+INIT_REPORT Init Duration: 0.23 ms	Phase: invoke	Status: error	Error Type: Runtime.InvalidEntrypoint
+
+Copy
+INIT_REPORT Init Duration: 0.23 ms Phase: invoke Status: error Error Type: Runtime.InvalidEntrypoint
+
+2024-02-25T14:36:29.053-05:00
+START RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Version: $LATEST
+
+Copy
+START RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Version: $LATEST
+
+2024-02-25T14:36:29.075-05:00
+RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Error: Couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap]
+Runtime.InvalidEntrypoint
+
+Copy
+RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c Error: Couldn't find valid bootstrap(s): [/var/task/bootstrap /opt/bootstrap] Runtime.InvalidEntrypoint
+
+2024-02-25T14:36:29.075-05:00
+END RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c
+
+Copy
+END RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c
+
+2024-02-25T14:36:29.075-05:00
+REPORT RequestId: d619c06a-7b1b-40e8-95d9-5adf1b31983c	Duration: 30.32 ms	Billed Duration: 31 ms	Memory Size: 128 MB	Max Memory Used: 2 MB	
+
+Copy
+~~~
