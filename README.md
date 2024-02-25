@@ -44,6 +44,7 @@ Here are the goals I have for this project. If you would like to encourage me to
 5. [Update DNS](5_Route_53.md)
 6. [Testing and Monitoring](6_Testing_and_Monitoring.md)
 7. [Adding Regions](7_Regions.md)
+8. [Next Steps](8_Next_Steps.md)
 
 # References
 My favorite IP address checking web sites:
