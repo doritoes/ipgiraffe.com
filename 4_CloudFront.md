@@ -40,8 +40,8 @@ If prompted for a distributio ntype, select "Web" distribution and proceed.
       - Click **Request certificate**
       - Certificate type *Public*, click **Next**
       - Enter the domain names you will use (e.g., ipgiraffe.com and www.ipgiraffe.com using the button *Add another name to this certificate*)
-      - Validation method: DNS validation
-      - Click Request
+      - Validation method: **DNS validation**
+      - Click **Request**
       - Click **List certificates**, click view your certificate
       - The status will be *Pending validation*
       - Click **Create Records in Route 53**
