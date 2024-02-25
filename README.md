@@ -26,9 +26,9 @@ Here are the goals I have for this project. If you would like to encourage me to
 - Apply giraffe-themed styling to the page
 - Added HTML comments to the source code
 ### Doing
-- improve the HTML
-### Will Do
 - document step-by-step how I did this so you can learn from my experience
+### Will Do
+- text other runtimes
 ### Might Do
 - Base-64 in-page image of a giraffe
 - Create another site based on GCP serverless computing
