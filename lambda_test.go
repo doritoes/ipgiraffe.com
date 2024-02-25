@@ -4,7 +4,6 @@ import (
     "fmt"
     "net/http"
     "strings"
-
     "github.com/aws/aws-lambda-go/events"
     "github.com/aws/aws-lambda-go/lambda"
 )
@@ -12,7 +11,7 @@ import (
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
     clientIp := "IP Address Not Found"
 
-    // Prioritize X-Forwarded-For with potential commas
+    // Prioritize X-Forwarded-For
     if xForwardedFor := request.Headers["X-Forwarded-For"]; xForwardedFor != "" {
         clientIp = strings.Split(xForwardedFor, ",")[0]
     }
