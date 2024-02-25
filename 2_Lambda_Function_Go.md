@@ -5,13 +5,13 @@ Where we demonstrate creating a Lambda function written on go on the Amazon Linu
 2. Install Go Development Environment on your local machine
   - Download the installer from https://go.dev/dl/
   - Default settings are OK
-  - Add G:\Go\bin to your path
+  - Add C:\Program Files\Go\ to your path
     - Windows
       - search for Edit the system environment variables
       - click Environment Variables
       - Under System variables, find the "Path" and click Edit
       - Click New
-      - Type the path where Go was installed (usually C:\Go\bin) and click OK
+      - Type the path where Go was installed (such as C:\Program Files\Go\) and click OK
       - Verify installation at command prompt `go version`
 3. Create a project folder (e.g., ipgiraffe)
 4. Create a new file in your project folder named `main.go`. Insert the example code.
