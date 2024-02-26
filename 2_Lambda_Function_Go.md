@@ -53,8 +53,5 @@ A Windows 11 workstation was used for the process below.
       - make sure it matches the function you built
     - Click **Create function**
     - In the *Code source* pane, click **Upload from** > **.zip file**
-    - Click **Upload**, select your **go.zip** file code, and click **Save**
-    - Under *Code* > *Runtime settings* click **Edit**
-    - Change the handler to **main.handler((
-    - ** continue writing here **     
+    - Click **Upload**, select your **lambda-handler.zip** file code, and click **Save**
     - Click **Test** then the orange **Test** button
