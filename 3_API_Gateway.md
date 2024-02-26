@@ -35,7 +35,7 @@ The default settings are what we want: no authorization or API key requirement
   4. Content type: <u>type in</u> **application/json** (this is IMPORTANT, you need to fill out this field)
   5. Template body: [mapping_template.vtl](mapping_template.vtl)
 3. Click **Save**
-4. In the ribbon bar, click the **Right >** arrow a few times to export the *Test* tab
+4. In the ribbon bar, click the **Right >** arrow a few times to expose the *Test* tab
 5. Click **Test** on the ribbon bar
 6. Click the orange **Test** button. The test should succeed.
 7. Click **Deploy API**
