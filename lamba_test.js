@@ -1,5 +1,3 @@
-import AWS from 'aws-sdk';
-
 exports.handler = async function (event, context) {
     if (!event) {
         return {
