@@ -8,7 +8,7 @@ import (
     "github.com/aws/aws-lambda-go/lambda"
 )
 
-func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func handler(event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
     clientIp := "IP Address Not Found"
 
     // Prioritize X-Forwarded-For
