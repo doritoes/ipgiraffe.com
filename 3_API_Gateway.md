@@ -9,7 +9,7 @@ The next step is to create the API Gateway. This acts as a "front door" for your
 1. Next to "REST API", click **Build**
 2. New API
 3. API name: **myIP-api**
-4. API endpoint type: Edge-optimized (we will be configuring CloudFront shortly)
+4. API endpoint type: **Edge-optimized** (we will be configuring CloudFront shortly)
 5. Click **Create API**
 
 ## Configure our Resource
