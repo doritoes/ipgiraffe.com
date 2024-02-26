@@ -17,6 +17,8 @@ A Windows 11 workstation was used for the process below.
       - `go get -u github.com/aws/aws-lambda-go`
       - `go get github.com/aws/aws-lambda-go/events`
       - `go get github.com/aws/aws-lambda-go/lambda`
+      - `go.exe get -v -x -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip`
+        - in testing, this was required for `build-lambda-zip.exe` to be created 
     - Set environment variables (temporary for this session)
       - `GOOS=linux`
       - x86_64 architecture: `GOARCH=amd64`
@@ -39,16 +41,16 @@ A Windows 11 workstation was used for the process below.
     - Get the tool
       - `go.exe install github.com/aws/aws-lambda-go/cmd/build-lambda-zip@latest`
     - Create the zip file named **lambda-handler.zip** (example for cmd.exe)
-      - cd %USERPROFILE%\Go\bin
-      - set GOOS=linux
-      - set GOARCH=amd64
-      - go build -o bootstrap man.go
-      - %USERPROFILE%\Go\bin\build-lambda-zip.exe -o lambda-handler.zip bootstrap
+      - `set GOOS=linux`
+      - `set GOARCH=amd64`
+      - `go build -o bootstrap man.go`
+      - `%USERPROFILE%\Go\bin\build-lambda-zip.exe -o lambda-handler.zip bootstrap`
 7. Create the Lambda function
     - Author from scratch
     - Function name: **myIPFunctionGo**
     - Runtime: **Amazon Linux**
     - Architecture: the architure you build your function for
+      - make sure it matches the function you built
     - Click **Create function**
     - In the *Code source* pane, click **Upload from** > **.zip file**
     - Click **Upload**, select your **go.zip** file code, and click **Save**
@@ -56,20 +58,3 @@ A Windows 11 workstation was used for the process below.
     - Change the handler to **main.handler((
     - ** continue writing here **     
     - Click **Test** then the orange **Test** button
-      
-Currently this is failing
-
-~~~
-{
-  "errorType": "Runtime.InvalidEntrypoint",
-  "errorMessage": "RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Error: fork/exec /var/task/bootstrap: no such file or directory"
-}
-
-INIT_REPORT Init Duration: 0.79 ms	Phase: init	Status: error	Error Type: Runtime.InvalidEntrypoint
-INIT_REPORT Init Duration: 0.61 ms	Phase: invoke	Status: error	Error Type: Runtime.InvalidEntrypoint
-START RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Version: $LATEST
-RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20 Error: fork/exec /var/task/bootstrap: no such file or directory
-Runtime.InvalidEntrypoint
-END RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20
-REPORT RequestId: 55fac1c7-b7a1-4af5-96f4-c3e79d8a2b20	Duration: 10.05 ms	Billed Duration: 11 ms	Memory Size: 128 MB	Max Memory Used: 3 MB	
-~~~
