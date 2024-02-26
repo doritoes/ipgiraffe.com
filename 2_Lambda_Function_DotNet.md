@@ -5,7 +5,7 @@ These instructions were tested on a Windows 11 system.
 
 ## Prerequisites
 1. Install [Visual Studio Code](https://code.visualstudio.com/download) on your workstation
-2. Install the [.NET 6 SDK](https://dotnet.microsoft.com/download) (or the latest LTS version)
+2. Install the [.NET 8 SDK](https://dotnet.microsoft.com/download) (or the latest LTS version)
 3. Create a Lambda project
     - Open Terminal (Powershell or your preferred command-line interface will work)
     - Navigate to the directory where you want to create the project folder
