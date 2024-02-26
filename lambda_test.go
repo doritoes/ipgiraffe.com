@@ -10,7 +10,20 @@ import (
 
 func handler(event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
     clientIp := "IP Address Not Found"
+    
+    if event.Body != "" {
+        var eventData map[string]string
+        err := json.Unmarshal([]byte(event.Body), &eventData) // Unmarshal JSON event body
+        if err == nil {
+            if sourceIp, ok := eventData["sourceIp"]; ok { // Check if key exists
+                clientIp = sourceIp
+            }
+            if xForwardedFor, ok := eventData["xForwardedFor"]; ok { // Check if key exists
+                clientIp = strings.Split(xForwardedFor, ",")[0]
+            }
 
+        }
+    }
     // Prioritize X-Forwarded-For
     if xForwardedFor := event.Headers["x-Forwarded-For"]; xForwardedFor != "" {
         clientIp = strings.Split(xForwardedFor, ",")[0]
