@@ -1,5 +1,5 @@
 # Create Go Node.js Function
-Where we demonstrate creating a Lambda function written in Node.js on Node.js runtime.
+Where we demonstrate creating a Lambda function written in Node.js on the Node.js runtime.
 
 1. Create the Lambda function
     - Author from scratch
