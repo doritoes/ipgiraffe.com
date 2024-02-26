@@ -1,5 +1,5 @@
 # Create Go Lambda Function
-Where we demonstrate creating a Lambda function written on go on the Amazon Linux runtime.
+Where we demonstrate creating a Lambda function written in Go on the Amazon Linux runtime.
 
 A Windows 11 workstation was used for the process below.
 
