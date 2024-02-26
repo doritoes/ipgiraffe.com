@@ -12,13 +12,13 @@ func handler(event events.APIGatewayProxyRequest) (events.APIGatewayProxyRespons
     clientIp := "IP Address Not Found"
 
     // Prioritize X-Forwarded-For
-    if xForwardedFor := event.Headers["xForwardedFor"]; xForwardedFor != "" {
+    if xForwardedFor := event.Headers["x-Forwarded-For"]; xForwardedFor != "" {
         clientIp = strings.Split(xForwardedFor, ",")[0]
     }
 
     // Fallback to API Gateway's sourceIp
     if clientIp == "IP Address Not Found" && event["SourceIp"] != "" {
-        clientIp = event["SourceIp"]
+        clientIp = event.RequestContext.Identity.SourceIP
     }
 
     htmlResponse := fmt.Sprintf(`
