@@ -30,11 +30,12 @@ A Windows 11 workstation was used for the process below.
         - `$ENV:GOARCH = "amd64"`
     - Build command
       - Run the command in your project folder
-      - `go build main.go`
-      - this produces an executable file named `main`
+      - `go build -o bootstrap main.go`
+      - this produces an executable file named `bootstrap`
 6. Create the Zip file
     - Create a zip file named **go.zip**
-    - Add the execuate we just created: `main`
+    - Add the executable we just created: `bootstrap`
+    - Add the [handler.sh](handler.sh) file
 7. Create the Lambda function
     - Author from scratch
     - Function name: **myIPFunctionGo**
