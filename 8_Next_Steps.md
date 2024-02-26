@@ -11,7 +11,7 @@ What are the cost implications?
 - x86_64 - compatibility
 
 ## Try Different Runtimes
-- Nodejs
+- Nodejs - [Instructions for Node.js](Create 2_Lambda_Function_Node.md)
 - Java
 - Ruby
 - .Net
