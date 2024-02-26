@@ -15,7 +15,11 @@ What are the cost implications?
 - Java
 - Ruby
 - .Net
-- Amazon Linux with Go, Rust, C++, custom
+- Amazon Linux with
+  - Go - [Instructions for Go](2_Lambda_Function_Go.md)
+  - Rust
+  - C++
+  - custom
 
 Compare the execution time and the memory used. Since cost is based on ms multiplied by memory used, which is the least expensive?
 
