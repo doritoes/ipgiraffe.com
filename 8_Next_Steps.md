@@ -13,7 +13,7 @@ What are the cost implications?
 ## Try Different Runtimes
 - Nodejs - [Instructions for Node.js](Create 2_Lambda_Function_Node.md)
 - Java
-- Ruby
+- Ruby - [Instructions for Ruby](2_Lambda_Function_Ruby.md)
 - .Net
 - Amazon Linux with
   - Go - [Instructions for Go](2_Lambda_Function_Go.md)
