@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk'); // Import the AWS SDK 
+import AWS from 'aws-sdk';
 
 exports.handler = async function (event, context) {
     if (!event) {
