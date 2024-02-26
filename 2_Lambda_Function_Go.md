@@ -33,9 +33,17 @@ A Windows 11 workstation was used for the process below.
       - `go build -o bootstrap main.go`
       - this produces an executable file named `bootstrap`
 6. Create the Zip file
-    - Create a zip file named **go.zip**
-    - Add the executable we just created: `bootstrap`
-    - Add the [handler.sh](handler.sh) file
+    - This is extremely challenging on Windows, and the requirements are strict
+    - https://docs.aws.amazon.com/lambda/latest/dg/golang-package.html
+    - https://github.com/aws/aws-lambda-go/tree/main/cmd/build-lambda-zip
+    - Get the tool
+      - `go.exe install github.com/aws/aws-lambda-go/cmd/build-lambda-zip@latest`
+    - Create the zip file named **lambda-handler.zip** (example for cmd.exe)
+      - cd %USERPROFILE%\Go\bin
+      - set GOOS=linux
+      - set GOARCH=amd64
+      - go build -o bootstrap man.go
+      - %USERPROFILE%\Go\bin\build-lambda-zip.exe -o lambda-handler.zip bootstrap
 7. Create the Lambda function
     - Author from scratch
     - Function name: **myIPFunctionGo**
