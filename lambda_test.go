@@ -39,8 +39,6 @@ func handler(ctx context.Context, event *MyEvent) (events.APIGatewayProxyRespons
         </body>
         </html>
     `, clientIp)
-	fmt.Println("IP Address:", event.SourceIP)
-	fmt.Println("Xforwarded:", event.XForwarded)
 	return events.APIGatewayProxyResponse{
 		StatusCode: http.StatusOK,
 		Body:       htmlResponse,
