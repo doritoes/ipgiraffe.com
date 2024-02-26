@@ -36,3 +36,4 @@ Using both, I created a 1460 byte version of the function, which stated at 2.96 
 ## Experiment with other code languages
 [Instructions for Go](2_Lambda_Function_Go.md)
 [Instructions for Node.js](2_Lambda_Function_Node.md)
+[Instructions for Ruby](2_Lambda_Function_Ruby.md)
