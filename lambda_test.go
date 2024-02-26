@@ -17,8 +17,8 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
     }
 
     // Fallback to API Gateway's sourceIp
-    if clientIp == "IP Address Not Found" && event['SourceIp'] != "" {
-        clientIp = event['SourceIp']
+    if clientIp == "IP Address Not Found" && event["SourceIp"] != "" {
+        clientIp = event["SourceIp"]
     }
 
     htmlResponse := fmt.Sprintf(`
