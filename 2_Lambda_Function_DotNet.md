@@ -1,4 +1,4 @@
-# Create Go .NET Function
+# Create .NET Lambda Function
 We are going to demonstrate using C# code. Other options for this runtime included F# and PowerShell.
 
 These instructions were tested on a Windows 11 system.
