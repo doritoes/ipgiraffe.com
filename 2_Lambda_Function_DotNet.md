@@ -10,7 +10,7 @@ These instructions were tested on a Windows 11 system.
 3. Install the [.NET 8 SDK](https://dotnet.microsoft.com/download) (or the latest LTS version)
     - verify the runtimes you have installed: `dotnet --info`
     - install the base Linux-x64 runtime components for .NET 8 installed
-      - Download Page: https://dotnet.microsoft.com/en-us/download
+      - Download Page: [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
       - Under .NET 8, find the section for "Run apps - Runtime".
       - Choose the download specifically for Linux-x64. The installer file name will likely include a linux-x64 Runtime Identifier (RID).
       - Install:  Follow the installation instructions provided for your Linux distribution
