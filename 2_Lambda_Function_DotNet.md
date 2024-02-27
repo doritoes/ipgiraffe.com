@@ -3,7 +3,7 @@ We are going to demonstrate using C# code. Other options for this runtime includ
 
 These instructions were tested on a Windows 11 system.
 
-*See https://awswith.net/2020/02/11/the-simplest-dot-net-core-aws-lambda-function/ *
+*See https://awswith.net/2020/02/11/the-simplest-dot-net-core-aws-lambda-function/*
 
 ## Prerequisites
 1. Install [Visual Studio Code](https://code.visualstudio.com/download) on your workstation
