@@ -9,6 +9,14 @@ These instructions were tested on a Windows 11 system.
 1. Install [Visual Studio Code](https://code.visualstudio.com/download) on your workstation
 3. Install the [.NET 8 SDK](https://dotnet.microsoft.com/download) (or the latest LTS version)
     - verify the runtimes you have installed: `dotnet --info`
+    - install the base Linux-x64 runtime components for .NET 8 installed
+      - Download Page: Vhttps://dotnet.microsoft.com/en-us/download
+      - Under .NET 8, find the section for "Run apps - Runtime".
+      - Choose the download specifically for Linux-x64. The installer file name will likely include a linux-x64 Runtime Identifier (RID).
+      - Install:  Follow the installation instructions provided for your Linux distribution
+      - Verify Installation: `dotnet --list-runtimes`
+      - You should now see a Microsoft.NETCore.App runtime with the Linux-x64 RID listed
+
 ## Create a Lambda Project
 1. Open Terminal (Powershell or your preferred command-line interface will work)
 2. Navigate to the directory where you want to create the project folder
@@ -17,13 +25,15 @@ These instructions were tested on a Windows 11 system.
     - `cd dotnet`
 4. Update to latest dotnet templates
     - `dotnet new update`
-5. Apply the global.json template
+5. Apply templates
     - `dotnet new globaljson`
 6. Install global CLI tools
-7. - `dotnet tool install -g Amazon.Lambda.Tools`
+    -  `dotnet tool install -g Amazon.Lambda.Tools`
+    -  `dotnet new install Amazon.Lambda.Templates`
 8. Create project and switch directory
-    - `dotnet new classlib -n LambdaWithUrl`
-    - `cd LambdaWithUrl`
+    - `dotnet new lambda.EmptyFunction -n myip`
+    - `cd src\myip`
+    - `cd myip`
 9. Add packages to the project
     - `dotnet add package Amazon.Lambda.Serialization.Json`
     - `dotnet add package Amazon.Lambda.Serialization.SystemTextJson`
@@ -34,16 +44,17 @@ These instructions were tested on a Windows 11 system.
 10. Write the Lambda Code
     - Open Visual Studio Code
     - Open the newly created project folder in VS Code (*Tip*: `code .`)
-    - Open `Class1.cs`
+    - Edit `myip\src\myip\Function.cs`
     - Paste code from [lambda_test.cs](lambda_test.cs)
 11. Build the Project
-    - In the VS Code terminal run
     - `dotnet build -c Release`
+12. Publish the Project
+    - `dotnet publish -c Release -r net8.0 -o ./bin/Release/net8.0/publish`
 # Package the ZIP file for upload
-1. Navigate to your project folder, then to the `bin/Release/net8.0` folder
+1. Navigate to your project folder, then to the `bin/Release/net8.0/publish` folder
 2. Create a zip file using using your preferred compression tool
     - Name: **LambdaDeploymentPackage.zip**
-    - Contents: *all the files in the `bin/Release/net8.0` folder
+    - Contents: *all the files in the `bin/Release/net8.0/publish` folder
     - Dependencies: *The zip file must contain all your code files and any required .NET assemblies (dependencies) your project uses*
     - Flat Structure: *Place the files directly at the root level of the zip file, not within an additional folder*
 
