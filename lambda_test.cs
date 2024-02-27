@@ -1,29 +1,40 @@
-using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
+using Amazon.Lambda.Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq; 
 
+// Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
-namespace MyIPLambda
+namespace myip 
 {
-    public class Function
+    public class MyEventInput
     {
-        public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
+        public string sourceIp { get; set; }
+        public string xForwardedFor { get; set; }
+    }
+    public class Function 
+    {
+        public APIGatewayProxyResponse FunctionHandler(MyEventInput input, ILambdaContext context)
         {
-            string clientIp = "IP Address Not Found";
+            string clientIp = "IP Address Not Found"; // Default
 
-            // Check X-Forwarded-For with potential multiple IPs
-            if (request.Headers != null && request.Headers.TryGetValue("X-Forwarded-For", out string xForwardedFor))
+            if (input != null) 
             {
-                clientIp = xForwardedFor.Split(',')[0];
+                // 1. Prioritize "X-Forwarded-For" header
+                if (!string.IsNullOrEmpty(input.xForwardedFor))
+                {
+                    string[] forwardedIps = input.xForwardedFor.Split(',');
+                    clientIp = forwardedIps[0].Trim(); // Extract the first IP
+                }
+                // 2. Fallback to "sourceIp" 
+                if (clientIp == "IP Address Not Found" && !string.IsNullOrEmpty(input.sourceIp))
+                {
+                    clientIp = input.sourceIp;
+                }             
             }
-
-            // Check API Gateway's sourceIp
-            if ("IP Address Not Found".Equals(clientIp) && request.RequestContext?.Identity?.SourceIp != null)
-            {
-                clientIp = request.RequestContext.Identity.SourceIp;
-            }
-
-            var htmlResponse = $@"
+            // Build the HTML response using string interpolation
+            string htmlResponse = $@"
                 <html>
                 <body>
                     <h1>Your IP Address</h1>
@@ -31,12 +42,11 @@ namespace MyIPLambda
                 </body>
                 </html>
             ";
-
             return new APIGatewayProxyResponse
             {
                 StatusCode = 200,
                 Body = htmlResponse,
-                Headers = new Dictionary<string, string> { { "Content-Type", "text/html" } }
+                Headers = new Dictionary<string, string> { { "Content-Type", "text/html" } } 
             };
         }
     }
