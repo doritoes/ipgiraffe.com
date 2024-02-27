@@ -28,7 +28,7 @@ These instructions were tested on a Windows 11 system.
     - `dotnet add package Amazon.Lambda.Serialization.Json`
     - `dotnet add package Amazon.Lambda.Serialization.SystemTextJson`
     - `dotnet add package Amazon.Lambda.CloudwatchEvents`
-    - ` dotnet add package Amazon.Lambda.Core`
+    - `dotnet add package Amazon.Lambda.Core`
     - `dotnet add package AWSSDK.Lambda`
     - `dotnet add package Amazon.Lambda.APIGatewayEvents`
 10. Write the Lambda Code
