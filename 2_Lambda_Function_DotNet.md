@@ -16,11 +16,14 @@ These instructions were tested on a Windows 11 system.
     - Update to latest dotnet templates
       - `dotnet new update`
       - `dotnet new install Amazon.Lambda.Templates`
+    - Install global CLI tools
+      - `dotnet tool install -g Amazon.Lambda.Tools`
     - use the 'dotnet' command to create a new C# Lambda project
-      - `dotnet new lambda.EmptyFunction -o . `
+      - `dotnet new lambda.EmptyFunction`
     - use 'dotnet' command to install dependencies (packages)
       - `dotnet add package Amazon.Lambda.Core`
       - `dotnet add package Amazon.Lambda.Serialization.SystemTextJson`
+      - FAILS
 5. Write the Lambda Code
     - Open Visual Studio Code
     - Open the newly created project folder in VS Code (*Tip*: `code .`)
@@ -29,3 +32,5 @@ These instructions were tested on a Windows 11 system.
 6. Build the Project
     - In the VS Code terminal run
       - `dotnet build -c Release`
+
+This page needs more work and testing
