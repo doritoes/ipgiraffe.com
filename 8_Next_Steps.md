@@ -14,7 +14,7 @@ What are the cost implications?
 - Nodejs - [Instructions for Node.js](Create 2_Lambda_Function_Node.md)
 - Java
 - Ruby - [Instructions for Ruby](2_Lambda_Function_Ruby.md)
-- .Net
+- .Net - [Instructions for .NET 8 C#](2_Lambda_Function_DotNet.md)
 - Amazon Linux with
   - Go - [Instructions for Go](2_Lambda_Function_Go.md)
   - Rust
