@@ -1,39 +1,35 @@
 use lambda_runtime::{handler_fn, Context, Error};
 use serde::{Deserialize, Serialize};
-use hyper::{Body, Request, Response, StatusCode};
+use aws_lambda_events::event::apigw::ApiGatewayProxyRequest;
 
-#[derive(Deserialize)]
-struct Event {
-    #[serde(rename = "requestContext")]
-    request_context: RequestContext,
-    headers: Option<std::collections::HashMap<String, String>>,
-}
-
-#[derive(Deserialize)]
-struct RequestContext {
-    identity: Identity,
-}
-
-#[derive(Deserialize)]
-struct Identity {
-    #[serde(rename = "sourceIp")]
-    source_ip: Option<String>,
+#[derive(Deserialize, Serialize)]
+struct MyEvent {
+    source_ip: Option<String>,     // Make fields optional 
+    x_forwarded_for: Option<String>,
 }
 
 #[derive(Serialize)]
-struct CustomOutput {
-    message: String,
+struct MyResponse {
+    status_code: u16,
+    body: String,
+    headers: std::collections::HashMap<String, String>, 
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let func = handler_fn(my_handler);
+    let func = handler_fn(handler);
     lambda_runtime::run(func).await?;
     Ok(())
 }
 
-async fn my_handler(event: Event, _: Context) -> Result<Response<Body>, Error> {
-    let client_ip = get_client_ip(&event);
+async fn handler(e: ApiGatewayProxyRequest, _: Context) -> Result<MyResponse, Error> {
+    let event: MyEvent = serde_json::from_str(&e.body.unwrap_or_default())?; // Handle potential parse errors
+
+    let client_ip = match (event.x_forwarded_for, event.source_ip) {
+        (Some(x_forwarded), _) => x_forwarded.split(',').next().unwrap_or("IP Address Not Found").to_string(),
+        (_, Some(source_ip)) => source_ip,
+        _ => "IP Address Not Found".to_string(), 
+    }; 
 
     let html_response = format!(
         r#"
@@ -47,23 +43,9 @@ async fn my_handler(event: Event, _: Context) -> Result<Response<Body>, Error> {
         client_ip
     );
 
-    let response = Response::builder()
-        .status(StatusCode::OK)
-        .header("Content-Type", "text/html")
-        .body(Body::from(html_response))?;
-
-    Ok(response)
+    Ok(MyResponse {
+        status_code: 200,
+        body: html_response,
+        headers: [("Content-Type".to_string(), "text/html".to_string())].into_iter().collect(),
+    }) 
 }
-
-fn get_client_ip(event: &Event) -> String {
-    if let Some(headers) = &event.headers {
-        if let Some(x_forwarded_for) = headers.get("X-Forwarded-For") {
-            return x_forwarded_for.split(',').next().unwrap_or("").to_string();
-        }
-    }
-    if let Some(source_ip) = &event.request_context.identity.source_ip {
-        return source_ip.to_string();
-    }
-
-    "IP Address Not Found".to_string()
-} 
