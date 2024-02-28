@@ -5,9 +5,9 @@ A Windows 11 workstation was used for the process below.
 
 ## Prerequisites
 1. Install Go Development Environment on your local machine
-  - Download the installer from https://go.dev/dl/
-  - Default settings are OK
-  - Verify installation at command prompt `go version`
+    - Download the installer from https://go.dev/dl/
+    - Default settings are OK
+    - Verify installation at command prompt `go version`
 ## Create the Project
 1. Create a project folder (e.g., ipgiraffe)
 2. Create a new file in your project folder named `main.go`
