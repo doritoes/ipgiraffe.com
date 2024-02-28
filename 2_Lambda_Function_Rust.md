@@ -15,6 +15,9 @@ A Windows 11 workstation was used for the process below. Note that you can also 
     - Select (1) Proceed with installation (default)
     - Re-open your terminal/command prompt so the commands will work
     - Run `rustup update`
+2. Windows: Install the "Build Tools for Visual Studio"
+    - https://visualstudio.microsoft.com/downloads/
+    - Select the "C++ build tools" workload
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
@@ -25,7 +28,8 @@ A Windows 11 workstation was used for the process below. Note that you can also 
     - serde_json = "1.0"
     - lambda_runtime = "0.6"
     - tokio = { version = "1", features = ["rt-multi-thread"] } # Required for async in Lambda
-    - aws_lambda_events = { version = "0.5", features = ["rustls-tls"] } 
+    - Didn't work in build, trying with this removed aws_lambda_events = { version = "0.5", features = ["rustls-tls"] }
+    - Trying aws_lambda_events = { version = "0.15" }
 7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
@@ -37,6 +41,19 @@ A Windows 11 workstation was used for the process below. Note that you can also 
 4. Locate compiled binary
     - located in the target/x86_64-unknown-linux-musl/release directory within your project
     - The filename will likely be the same as your project name (e.g., ip_lambda_rust)
+
+STUCK at build error
+
+~~~
+error: failed to select a version for `aws_lambda_events`.
+    ... required by package `ip_lambda_rust v0.1.0 (C:\Tools\rust\ip_lambda_rust)`
+versions that meet the requirements `^0.5` are: 0.5.0
+
+the package `ip_lambda_rust` depends on `aws_lambda_events`, with features: `rustls-tls` but `aws_lambda_events` does not have these features.
+
+
+failed to select a version for `aws_lambda_events` which could resolve this conflictw
+~~~
 
 ## Package the ZIP file for upload
 Create the ZIP file **lambda-handler-rust.zip** containing your compiled binary
