@@ -18,11 +18,13 @@ struct MyResponse {
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let func = service_fn(handler);
-    lambda_runtime::run::<ApiGatewayProxyRequest, MyResponse, _>(func).await?; // No LambdaEvent here 
+    lambda_runtime::run::<LambdaEvent<ApiGatewayProxyRequest>, MyResponse, _>(func).await?; 
     Ok(())
 }
 
-async fn handler(event: ApiGatewayProxyRequest) -> Result<MyResponse, Error> { // No LambdaEvent here 
-    // TODO: Implement event extraction, IP logic, and response building
-    unimplemented!()
+async fn handler(event: LambdaEvent<ApiGatewayProxyRequest>) -> Result<MyResponse, Error> {  // Updated signature
+    // 1. Extract ApiGatewayProxyRequest from the event
+    // 2. Implement IP logic
+    // 3. Build and return MyResponse
+    unimplemented!() 
 }
