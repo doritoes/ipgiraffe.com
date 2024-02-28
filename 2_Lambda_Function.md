@@ -37,3 +37,5 @@ Using both, I created a 1460 byte version of the function, which stated at 2.96 
 [Instructions for Go](2_Lambda_Function_Go.md)
 [Instructions for Node.js](2_Lambda_Function_Node.md)
 [Instructions for Ruby](2_Lambda_Function_Ruby.md)
+[Instructions for .NET 8 C#](2_Lambda_Function_DotNet.md)
+
