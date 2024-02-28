@@ -21,16 +21,17 @@ A Windows 11 workstation was used for the process below. Note that you can also 
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
-3. `cargo new ip_lambda_rust`
-4. `cd ip_lambda_rust`
-5. Edit the `Cargo.toml` file to add the following dependencies under `[dependencies]`
+2. `mkdir ip_rust`
+3. `cd ip_rust`
+4. `cargo init --bin`
+7. Edit the `Cargo.toml` file to add the following dependencies under `[dependencies]`
     - serde = "1.0"
     - serde_json = "1.0"
     - lambda_runtime = "0.6"
     - tokio = { version = "1", features = ["rt-multi-thread"] } # Required for async in Lambda
     - Didn't work in build, trying with this removed aws_lambda_events = { version = "0.5", features = ["rustls-tls"] }
     - Trying aws_lambda_events = { version = "0.15" }
-7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
+8.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
 1. Install the Rust target specification for compiling to 64-bit Amazon Linux 2023 (using the MUSL C library)
