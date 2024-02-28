@@ -18,7 +18,7 @@ struct MyResponse {
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let func = service_fn(handler);
-    lambda_runtime::run(func).await?;
+    lambda_runtime::run::<LambdaEvent<ApiGatewayProxyRequest>, MyResponse, _>(func).await?; // Specify types 
     Ok(())
 }
 
