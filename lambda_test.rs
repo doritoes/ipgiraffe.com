@@ -1,4 +1,4 @@
-use lambda_runtime::{handler_fn, Context, Error};
+use lambda_runtime::{service_fn, Error};
 use serde::{Deserialize, Serialize};
 use aws_lambda_events::event::apigw::ApiGatewayProxyRequest;
 
@@ -17,12 +17,12 @@ struct MyResponse {
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    let func = handler_fn(handler);
+    let func = service_fn(handler);
     lambda_runtime::run(func).await?;
     Ok(())
 }
 
-async fn handler(e: ApiGatewayProxyRequest, _: Context) -> Result<MyResponse, Error> {
+async fn handler(e: ApiGatewayProxyRequest) -> Result<MyResponse, Error> {
     let event: MyEvent = serde_json::from_str(&e.body.unwrap_or_default())?; // Handle potential parse errors
 
     let client_ip = match (event.x_forwarded_for, event.source_ip) {
