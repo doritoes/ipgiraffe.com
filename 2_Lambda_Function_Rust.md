@@ -3,8 +3,6 @@ Where we demonstrate creating a Lambda function written in Rust on the Amazon Li
 
 A Windows 11 workstation was used for the process below. Note that you can also Rust install in WSL (Windows Subsystem for Linux). See the installation link below.
 
-WORK IN PROGRESS
-
 ## Prerequisites
 1. Install Rust on your local machine
     - https://www.rust-lang.org/tools/install
@@ -16,7 +14,7 @@ WORK IN PROGRESS
     - Be very patient for all of the Visual Studio components and packages are installed
     - Select (1) Proceed with installation (default)
     - Re-open your terminal/command prompt so the commands will work
-
+    - Run `rustup update`
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
@@ -31,7 +29,14 @@ WORK IN PROGRESS
 7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
-
+1. Install the Rust target specification for compiling to 64-bit Amazon Linux 2023 (using the MUSL C library)
+    - `rustup target add x86_64-unknown-linux-musl`
+2. Navigate to your project's root directory
+3. Build with Cross-Compilation
+    - `cargo build --release --target x86_64-unknown-linux-musl`
+4. Locate compiled binary
+    - located in the target/x86_64-unknown-linux-musl/release directory within your project
+    - The filename will likely be the same as your project name (e.g., ip_lambda_rust)
 
 ## Package the ZIP file for upload
 Create the ZIP file **lambda-handler-rust.zip** containing your compiled binary
