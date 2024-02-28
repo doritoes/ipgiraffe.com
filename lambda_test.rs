@@ -1,4 +1,4 @@
-use lambda_runtime::{service_fn, Error};
+use lambda_runtime::{service_fn, Error, LambdaEvent}; // Import LambdaEvent
 use aws_lambda_events::event::apigw::ApiGatewayProxyRequest;
 use serde::{Deserialize, Serialize};
 
