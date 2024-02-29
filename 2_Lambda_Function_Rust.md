@@ -1,30 +1,25 @@
 # Create Rust Lambda Function
 Where we demonstrate creating a Lambda function written in Rust on the Amazon Linux runtime.
 
-A Windows 11 workstation was used for the process below. Note that you can also Rust install in WSL (Windows Subsystem for Linux). See the installation link below.
+A Windows 11 workstation was used for the process below. It is a challenge to cross-compile for Amazon Linux 2023 from Windows 11. Therefore are going to install under WSL (Windows Subsystem for Linux).
 
 *See [https://docs.aws.amazon.com/linux/al2023/ug/rust.html](https://stratusgrid.com/blog/aws-lambda-rust-how-to-deploy-aws-lambda-functions)*
 
 ## Prerequisites
-1. Install Rust on your local machine
-    - https://www.rust-lang.org/tools/install
-    - Rust is installed and managed by the `rustup` tool
-    - Download RUSTUP-INIT.EXT (64-BIT)
-    - Run the program
-    - Select (1) Quick install of Rust Visual C++ prerequisites
-    - Click Install for Visual Studio
-    - Be very patient for all of the Visual Studio components and packages are installed
-    - Select (1) Proceed with installation (default)
-2. Update Rust
-    - Re-open your terminal/command prompt so the commands will work
-    - Run `rustup update`
-3. Install MinGW-w64 to resolve the missing linker 'cc' messages
-    - Download the MinGW-w64 installer
-      - https://www.mingw-w64.org/downloads/
-      - Install and **select the following packages**
-        - mingw32-base-bin
-        - mingw32-gss-g++-bin
-      - Note the installation location (e.g. C:\mingw-w64)
+1. Install WSL (Windows 11 and Windows 10 2004 or later)
+    - Serach for "Turn Windows Features on or off" in your Start menu
+    - Check the box next to "Windows Subsystem for Linux" and click "OK"
+    - Restart your computer as prompted
+2. Install a Linux Distribution
+    - Open the Microsoft Store app
+    - Search for your preferred Linux distribution. Ubuntu is a popular and beginner-friendly choice.
+    - Click "Get" to install the distribution
+3. Setup WSL
+    - Initial Launch: After the installation, open a new terminal/command prompt, type wsl, and press enter. This will initialize and launch your chosen Linux distribution.
+    - Create a User: You'll be asked to create a Unix username and password.
+4. Install Rust in WSL
+    - continue working here
+6. 
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
@@ -33,7 +28,7 @@ A Windows 11 workstation was used for the process below. Note that you can also 
 4. `cargo init --bin`
 5. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
     - [dependencies.txt](dependencies.txt)
-6. Edit the `Cargo.toml` file to configure the linker
+6. Create the direction `.cargo` and inside it, the file `config.toml` file to configure the linker
     - `[target.x86_64-unknown-linux-musl]`
     - `linker = "x86_64-w64-mingw32-gcc"`
     - `ar = "x86_64-w64-mingw32-ar"`
