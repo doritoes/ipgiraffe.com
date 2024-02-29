@@ -50,13 +50,13 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 4. Locate compiled binary
     - located in the target/x86_64-unknown-linux-musl/release directory within your project
     - The filename will likely be the same as your project name (e.g., ip_lambda_rust)
-
-STUCK at build errors
-
-
-
+5. Copy it back to your Windows host
+    - If your have a directory in c:\Tools
+    - `cp <filename> /mnt/c/Tools`
 ## Package the ZIP file for upload
 Create the ZIP file **lambda-handler-rust.zip** containing your compiled binary
+- Find the file you copied (ip_lambda_rust)
+- Right click on it, and click **Compress to ZIP file**
 
 # Create function
 ## Log in to AWS Console and Navigate to Lamba
