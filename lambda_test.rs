@@ -3,33 +3,33 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize)]
 struct Event {
-  sourceIp: Option<String>, 
-  xForwardedFor: Option<String>, 
+  sourceIp: Option<String>, 
+  xForwardedFor: Option<String>, 
 }
 
 #[derive(Serialize)]
 struct Response {
-  body: String,
+  body: String,
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-  let func = service_fn(handler);
-  lambda_runtime::run(func).await?;
-  Ok(())
+  let func = service_fn(handler);
+  lambda_runtime::run(func).await?;
+  Ok(())
 }
 
 async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
-  let (event, _context) = event.into_parts();
+  let (event, _context) = event.into_parts();
 
-  let body = if let Some(xff) = event.xForwardedFor {
-    xff.split(',').next().unwrap_or_default().to_string() 
-  } else if let Some(sip) = event.sourceIp { 
-    sip 
-  } else {
-    "Nothing".to_string() 
-  };
+  let body = if let Some(xff) = event.xForwardedFor {
+    xff.split(',').next().unwrap_or_default().to_string() 
+  } else if let Some(sip) = event.sourceIp { 
+    sip 
+  } else {
+    "Nothing".to_string() 
+  };
 
-  let response = Response { body };
-  Ok(response) // <-- Closing brace added  
+  let response = Response { body };
+  Ok(response)
 }
