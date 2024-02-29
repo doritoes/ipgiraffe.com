@@ -47,16 +47,19 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 2. Navigate to your project's root directory
 3. Build with Cross-Compilation
     - `cargo build --release --target x86_64-unknown-linux-musl`
+
+## Package the ZIP file for upload
 4. Locate compiled binary
     - located in the target/x86_64-unknown-linux-musl/release directory within your project
     - The filename will likely be the same as your project name (e.g., ip_lambda_rust)
-5. Copy it back to your Windows host
+5. Create the bootstrap file
+    - `cp ip_lambda_rust boostrap`
+6. Create the ZIP file
+    - `zip lambda-handler-rust.zip boostrap`
+5. Copy the ZIP file back to your Windows host
     - If your have a directory in c:\Tools
     - `cp <filename> /mnt/c/Tools`
-## Package the ZIP file for upload
-Create the ZIP file **lambda-handler-rust.zip** containing your compiled binary
-- Find the file you copied (ip_lambda_rust)
-- Right click on it, and click **Compress to ZIP file**
+    - Alternatively, find the WSL file from Windows: Windows-R, `\\wsl$`, OK, select your distribution, home, your username, and go from there
 
 # Create function
 ## Log in to AWS Console and Navigate to Lamba
