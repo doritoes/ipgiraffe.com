@@ -3,7 +3,7 @@ Where we demonstrate creating a Lambda function written in Rust on the Amazon Li
 
 A Windows 11 workstation was used for the process below. Note that you can also Rust install in WSL (Windows Subsystem for Linux). See the installation link below.
 
-*See https://docs.aws.amazon.com/linux/al2023/ug/rust.html*
+*See [https://docs.aws.amazon.com/linux/al2023/ug/rust.html](https://stratusgrid.com/blog/aws-lambda-rust-how-to-deploy-aws-lambda-functions)*
 
 ## Prerequisites
 1. Install Rust on your local machine
@@ -26,13 +26,9 @@ A Windows 11 workstation was used for the process below. Note that you can also 
 2. `mkdir myip_rust`
 3. `cd myip_rust`
 4. `cargo init --bin`
-7. Edit the `Cargo.toml` file to add the following dependencies under `[dependencies]`
-    - serde = "1.0"
-    - serde_json = "1.0"
-    - lambda_runtime = "0.6"
-    - tokio = { version = "1", features = ["rt-multi-thread"] } # Required for async in Lambda
-    - aws_lambda_events = { version = "0.15" }
-8.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
+7. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
+    - [dependencies.txt](dependencies.txt)
+9.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
 1. Install the Rust target specification for compiling to 64-bit Amazon Linux 2023 (using the MUSL C library)
