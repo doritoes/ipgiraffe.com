@@ -8,7 +8,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 ## Prerequisites
 1. Install WSL (Windows 11 and Windows 10 2004 or later)
     - Search for "Turn Windows Features on or off" in your Start menu
-    - Check the box next to "Windows Subsystem for Linux" and click *OK*
+    - Check the box next to "Windows Subsystem for Linux" and click **OK**
     - Restart your computer as prompted
 2. Install a Linux Distribution
     - Open the Microsoft Store app
