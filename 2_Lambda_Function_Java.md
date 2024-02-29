@@ -12,6 +12,7 @@ A Windows 11 workstation was used for the process below.
     - Locate the "Java SE 21" section
     - Download the Windows x64 installer
     - Run the installer (Defaults are fine)
+      - C:\Program Files\Java\jdk-21\
     - Environment variables
       - Search for "Environment Variables": Search for "Edit the system environment variables" in the Windows search bar
       - Click "Environment Variables" in the System Properties window.
