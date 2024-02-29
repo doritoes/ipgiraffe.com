@@ -3,6 +3,8 @@ Where we demonstrate creating a Lambda function written in Rust on the Amazon Li
 
 A Windows 11 workstation was used for the process below. Note that you can also Rust install in WSL (Windows Subsystem for Linux). See the installation link below.
 
+*See https://docs.aws.amazon.com/linux/al2023/ug/rust.html*
+
 ## Prerequisites
 1. Install Rust on your local machine
     - https://www.rust-lang.org/tools/install
