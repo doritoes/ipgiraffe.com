@@ -27,9 +27,15 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
   } else if let Some(sip) = event.sourceIp { 
     sip 
   } else {
-    "Nothing".to_string() 
+    "IP Address Not Found".to_string() 
   };
-
-  let response = Response { body };
-  Ok(response)
+  let html_response = format!(r#"
+  <html>
+  <body>
+    <h1>Your IP Address</h1>
+    <p>{}</p>
+  </body>
+  </html>
+  "#, body);
+  Ok(html_response)
 }
