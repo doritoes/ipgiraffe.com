@@ -26,8 +26,8 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
     let value = event.key.unwrap_or_else(|| "".to_string());
 
     let color = event.color
-                    .and_then(|colors| colors.split(',').next()) // Extract first color
-                    .unwrap_or_default(); // Default if empty or 'color' is absent
+                    .and_then(|colors| colors.split(',').next().map(|s| s.to_string())) // Extract and clone
+                    .unwrap_or_default(); 
 
     let body = format!("Hello {} and {}", value, color);
     let response = Response { body };
