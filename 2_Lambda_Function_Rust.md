@@ -18,15 +18,26 @@ A Windows 11 workstation was used for the process below. Note that you can also 
 2. Update Rust
     - Re-open your terminal/command prompt so the commands will work
     - Run `rustup update`
+3. Install MinGW-w64 to resolve the missing linker 'cc' messages
+    - Download the MinGW-w64 installer
+      - https://www.mingw-w64.org/downloads/
+      - Install and **select the following packages**
+        - mingw32-base-bin
+        - mingw32-gss-g++-bin
+      - Note the installation location (e.g. C:\mingw-w64)
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
 2. `mkdir myip_rust`
 3. `cd myip_rust`
 4. `cargo init --bin`
-7. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
+5. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
     - [dependencies.txt](dependencies.txt)
-9.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
+6. Edit the `Cargo.toml` file to configure the linker
+    - `[target.x86_64-unknown-linux-musl]`
+    - `linker = "x86_64-w64-mingw32-gcc"`
+    - `ar = "x86_64-w64-mingw32-ar"`
+7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
 1. Install the Rust target specification for compiling to 64-bit Amazon Linux 2023 (using the MUSL C library)
