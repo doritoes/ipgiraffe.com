@@ -15,11 +15,9 @@ A Windows 11 workstation was used for the process below. Note that you can also 
     - Click Install for Visual Studio
     - Be very patient for all of the Visual Studio components and packages are installed
     - Select (1) Proceed with installation (default)
+2. Update Rust
     - Re-open your terminal/command prompt so the commands will work
     - Run `rustup update`
-2. Windows: Install the "Build Tools for Visual Studio"
-    - https://visualstudio.microsoft.com/downloads/
-    - Select the "C++ build tools" workload
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
