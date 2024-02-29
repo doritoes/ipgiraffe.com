@@ -29,6 +29,7 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
   } else {
     "IP Address Not Found".to_string() 
   };
+
   let html_response = format!(r#"
   <html>
   <body>
@@ -37,5 +38,6 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
   </body>
   </html>
   "#, body);
+
   Ok(Response { body: html_response })
 }
