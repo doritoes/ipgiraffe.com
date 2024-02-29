@@ -5,6 +5,8 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 
 *See [https://docs.aws.amazon.com/linux/al2023/ug/rust.html](https://stratusgrid.com/blog/aws-lambda-rust-how-to-deploy-aws-lambda-functions)*
 
+*See https://learn.microsoft.com/en-us/windows/wsl/install*
+
 ## Prerequisites
 1. Install WSL (Windows 11 and Windows 10 2004 or later)
     - Search for "Turn Windows Features on or off" in your Start menu
