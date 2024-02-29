@@ -1,40 +1,27 @@
-import com.amazonaws.services.lambda.runtime.Context; 
+import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.fasterxml.jackson.databind.ObjectMapper; // For JSON deserialization
 
-public class IpLambdaHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class MyIPHandler implements RequestHandler<Event, String> {
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
-        String clientIp = "IP Address Not Found";
-
-        // Prioritize X-Forwarded-For with potential comma-separated IPs
-        if (event.getHeaders() != null) {
-            String xForwardedFor = event.getHeaders().get("X-Forwarded-For");
-            if (xForwardedFor != null) {
-                clientIp = xForwardedFor.split(",")[0];
-            }
+    public String handleRequest(Event event, Context context) {
+        String body;
+        if (event.getXForwardedFor() != null) {
+            body = event.getXForwardedFor().split(",")[0];
+        } else if (event.getSourceIp() != null) {
+            body = event.getSourceIp();
+        } else {
+            body = "IP Address Not Found";
         }
 
-        // Fallback to API Gateway's sourceIp 
-        if ("IP Address Not Found".equals(clientIp) && event.getRequestContext() != null) {
-            clientIp = event.getRequestContext().getIdentity().getSourceIp();
-        }
+        String htmlResponse = String.format(
+                "<html><body><h1>Your IP Address</h1><p>%s</p></body></html>",
+                body
+        );
 
-        String htmlResponse = String.format("""
-                <html>
-                <body>
-                    <h1>Your IP Address</h1>
-                    <p>%s</p>
-                </body>
-                </html>
-                """, clientIp);
-
-        APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
-        response.setStatusCode(200);
-        response.setBody(htmlResponse);
-        response.getHeaders().put("Content-Type", "text/html");
-        return response;
+        return htmlResponse;
     }
 }
