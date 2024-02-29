@@ -16,22 +16,29 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     - Click "Get" to install the distribution
 3. Setup WSL
     - Initial Launch: After the installation, open a new terminal/command prompt, type wsl, and press enter. This will initialize and launch your chosen Linux distribution.
-    - Create a User: You'll be asked to create a Unix username and password.
+    - Create a User: You'll be asked to create a Unix username and password
 4. Install Rust in WSL
-    - continue working here
-6. 
+    - Open a terminal within WSL
+    - Follow the Rust installation instructions
+      - https://www.rust-lang.org/tools/install
+      - `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+      - Answer 1 to continue the installation
+      - Either restart your terminal or follow the instructions to run `source "$HOME/.cargo/env"`
+  - Check for updates `rustup updates`
+  - Install the Cross-Compilation Target
+    - `rustup target add x86_64-unknown-linux-musl`
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
 2. `mkdir myip_rust`
 3. `cd myip_rust`
 4. `cargo init --bin`
-5. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
-    - [dependencies.txt](dependencies.txt)
-6. Create the direction `.cargo` and inside it, the file `config.toml` file to configure the linker
+5.  Configure Cargo
+    - Create `.cargo/config.toml` file
     - `[target.x86_64-unknown-linux-musl]`
-    - `linker = "x86_64-w64-mingw32-gcc"`
-    - `ar = "x86_64-w64-mingw32-ar"`
+    - `linker = "x86_64-linux-gnu-gcc"`
+6. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
+    - [dependencies.txt](dependencies.txt)
 7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
