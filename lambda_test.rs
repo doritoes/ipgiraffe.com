@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize)]
 struct Event {
-    sourcIp: Option<String>,
+    sourceIp: Option<String>,
     xForwardedFor: Option<String>
 }
 
