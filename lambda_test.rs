@@ -4,7 +4,6 @@ use serde::{Deserialize, Serialize};
 #[derive(Deserialize)]
 struct Event {
     key: String,
-    color: Option<String>, 
 }
 
 #[derive(Serialize)]
@@ -23,13 +22,7 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
     let (event, _context) = event.into_parts();
     let value = event.key;
 
-    let first_color = if let Some(colors) = event.color {
-        colors.split(',').next().unwrap_or_default() // Extract first color
-    } else {
-        "None".to_string() // Placeholder if no color is provided
-    };
-
-    let body = format!("Hello {} and {}", value, first_color);
+    let body = format!("Hello {}", value);
     let response = Response { body };
     Ok(response)
 }
