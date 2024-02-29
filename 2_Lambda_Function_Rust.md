@@ -7,8 +7,8 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 
 ## Prerequisites
 1. Install WSL (Windows 11 and Windows 10 2004 or later)
-    - Serach for "Turn Windows Features on or off" in your Start menu
-    - Check the box next to "Windows Subsystem for Linux" and click "OK"
+    - Search for "Turn Windows Features on or off" in your Start menu
+    - Check the box next to "Windows Subsystem for Linux" and click *OK*
     - Restart your computer as prompted
 2. Install a Linux Distribution
     - Open the Microsoft Store app
@@ -39,6 +39,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     - `linker = "x86_64-linux-gnu-gcc"`
 6. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
     - [dependencies.txt](dependencies.txt)
+7. better way: cargo add aws_lambda_events http lambda_runtime serde serde_json tokio
 7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
@@ -57,9 +58,11 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 6. Create the ZIP file
     - `zip lambda-handler-rust.zip boostrap`
 5. Copy the ZIP file back to your Windows host
-    - If your have a directory in c:\Tools
-    - `cp <filename> /mnt/c/Tools`
-    - Alternatively, find the WSL file from Windows: Windows-R, `\\wsl$`, OK, select your distribution, home, your username, and go from there
+    - From Windows: Windows-R, `\\wsl$`
+    - Open your Linux distribution, then home directory, your user directory, and nagivate from there
+    - Alternatively, you can copy the file from within WSL back to a folder on the host
+      - If your have a directory in c:\Tools
+      - `cp <filename> /mnt/c/Tools`
 
 # Create function
 ## Log in to AWS Console and Navigate to Lamba
