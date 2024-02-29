@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Deserialize)]
 struct Event {
     key: String,
+    color: Option<String>, // Make 'color' optional
 }
 
 #[derive(Serialize)]
@@ -19,11 +20,17 @@ async fn main() -> Result<(), Error> {
 }
 
 async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
-    // Access the event data directly (if needed)
     let (event, _context) = event.into_parts();
     let value = event.key;
 
-    let body = format!("Hello {}", value);
+    // Handle the color if it exists
+    let color_part = if let Some(color) = event.color {
+        format!(" and {}", color)
+    } else {
+        String::new() // Empty string if color is absent
+    };
+
+    let body = format!("Hello {}{}", value, color_part);
     let response = Response { body };
     Ok(response)
 }
