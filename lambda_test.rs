@@ -22,14 +22,14 @@ async fn main() -> Result<(), Error> {
 async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
     let (event, _context) = event.into_parts();
 
-    // Retrieve 'sourceIp' and 'xForwardedFor', handling defaults
-    let src = event.sourceIp.unwrap_or_else(|| "".to_string());
+    let body = if let Some(xff) = event.xForwardedFor {
+        xff.split(',').next().unwrap_or_default().to_string() 
+    } else if let Some(sip) = event.sourceIp { // Updated variable name
+        sip 
+    } else {
+        "Nothing".to_string() 
+    };
 
-    let xff = event.xForwardedFor
-                    .and_then(|xffs| xffs.split(',').next().map(|s| s.to_string())) // Extract and clone
-                    .unwrap_or_default(); 
-
-    let body = format!("Hello {} and {}", src, xff);
     let response = Response { body };
     Ok(response)
 }
