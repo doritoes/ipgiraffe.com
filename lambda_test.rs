@@ -37,5 +37,5 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
   </body>
   </html>
   "#, body);
-  Ok(html_response)
+  Ok(Response { body: html_response })
 }
