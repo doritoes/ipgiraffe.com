@@ -3,8 +3,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize)]
 struct Event {
-    key: Option<String>, 
-    color: Option<String>, 
+    sourceIp: Option<String>, 
+    xForwardedFor: Option<String>, 
 }
 
 #[derive(Serialize)]
@@ -22,14 +22,14 @@ async fn main() -> Result<(), Error> {
 async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
     let (event, _context) = event.into_parts();
 
-    // Retrieve 'key' and 'color', handling defaults
-    let value = event.key.unwrap_or_else(|| "".to_string());
+    // Retrieve 'sourceIp' and 'xForwardedFor', handling defaults
+    let src = event.sourceIp.unwrap_or_else(|| "".to_string());
 
-    let color = event.color
-                    .and_then(|colors| colors.split(',').next().map(|s| s.to_string())) // Extract and clone
+    let xff = event.xForwardedFor
+                    .and_then(|xffs| xffs.split(',').next().map(|s| s.to_string())) // Extract and clone
                     .unwrap_or_default(); 
 
-    let body = format!("Hello {} and {}", value, color);
+    let body = format!("Hello {} and {}", src, xff);
     let response = Response { body };
     Ok(response)
 }
