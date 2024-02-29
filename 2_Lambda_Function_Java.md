@@ -3,8 +3,10 @@ Where we demonstrate creating a Lambda function written in Java on the Java 21 r
 
 A Windows 11 workstation was used for the process below.
 
+**IMPORTANT** a free account registration is required to download the Oracle JDK
+
 ## Prerequisites
-1. Java Development Kit (JDK)
+1. Java Development Kit (JDK) - *login required*
     - Java Development Kit (JDK) version 21
     - https://www.oracle.com/java/technologies/downloads/
     - Locate the "Java SE 21" section
