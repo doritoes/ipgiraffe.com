@@ -3,8 +3,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize)]
 struct Event {
-  sourceIp: Option<String>, 
-  xForwardedFor: Option<String>, 
+  sourceIp: Option<String>, 
+  xForwardedFor: Option<String>, 
 }
 
 #[derive(Serialize)]
@@ -32,4 +32,4 @@ async fn handler(event: LambdaEvent<Event>) -> Result<Response, Error> {
 
   let response = Response { body };
   Ok(response) // <-- Closing brace added  
-} // <-- Closing brace for the handler function
+}
