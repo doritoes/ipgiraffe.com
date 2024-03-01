@@ -32,14 +32,17 @@ A Windows 11 workstation was used for the process below.
       - Under *System variables*, click **New...**
         - Variable name: **M2_HOME**
         - Variable value: set to the Maven installation directory (e.g., C:\Program Files\Apache\maven).
-      - Under *System variables*, edit
-        - Variable name: **PATH**
-        - Variable value: *add a new entry to the end*, path to the bin directory inside the Maven directory (e.g. C:\Program Files\Apache\maven\bin)
-    - Verify from command line
+      - Under *System variables*, edit **Path**
+        - Click **New**
+        - Add the path to the bin directory inside the Maven directory (e.g. C:\Program Files\Apache\maven\bin)
+    - Test from command line (open a new command prompt if needed)
       - `mvn -version`
 
 ## Create the Project
-todo
+1. Open a terminal and navigate to your desired project directory
+2. `mkdir myip_java`
+3. `cd myip_java`
+4. Create a file `pom.xml` with the contents of [pom.xml](pom.xml)
  
 ## Build
 todo
