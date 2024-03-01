@@ -43,6 +43,7 @@ A Windows 11 workstation was used for the process below.
 2. `mkdir myip_java`
 3. `cd myip_java`
 4. Create a file `pom.xml` with the contents of [pom.xml](pom.xml)
+5. Create a new file named **MyIPHandler.java** with the contents of [lambda_test.java](lambda_test.java)
  
 ## Build
 todo
