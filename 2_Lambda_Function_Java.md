@@ -46,12 +46,23 @@ A Windows 11 workstation was used for the process below.
 5. Create a new file named **MyIPHandler.java** with the contents of [lambda_test.java](lambda_test.java)
  
 ## Build
-todo
+1. Open command line in the project folder (e.g., `myip_java`)
+2. `mvn package`
+3. The jar file will be created in the `target` folder
+    - similar to `my-ip-function-1.0-SNAPSHOT.jar`
+    - this is the JAR file containing your compiled Java code
 
 ## Package the ZIP file for upload
-todo 
+1. Option 1 - Powershell
+    1. Open a <u>**PowerShell**</u> command line in the project folder (e.g., `myip_java`)
+    2. `cd target`
+    3. `Compress-Archive -Path my-ip-function-1.0-SNAPSHOT.jar -DestinationPath lambda-handler-java.zip`
+2. Option 2 - Windows Explorer
+    1. Browse to the project folder and find the .jar file in the target directory
+    2. Right click on your .jar file and click **Compress to ZIP file**
+    3. Name it **lambda-handler-java.zip**
+   
 # Create function
-todo
 
 ## Log in to AWS Console and Navigate to Lamba
 1. Browse to (https://console.aws.amazon.com) and log in
@@ -61,10 +72,10 @@ todo
     1. Author from scratch
     2. Function name: **myIPFunctionRest**
     3. Runtime: **Java 21**
-    4. Change the defult Handler from example.Hello::handleRequest to **MyIPHandler::handleRequest**
-    5. Architecture: the architure you build your function for
+    4. Change the defult Handler from example.Hello::handleRequest to ** com.example.MyIPHandler::handleRequest**
+    6. Architecture: the architure you build your function for
         - make sure it matches the function you built
-    6. Leave the rest at defuaults, click **Create function**
+    7. Leave the rest at defuaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.zip file**
     - Click **Upload**, select your **lambda-handler-java.zip** file code, and click **Save**
 3. Click **Test**
