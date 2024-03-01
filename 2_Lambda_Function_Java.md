@@ -42,9 +42,14 @@ A Windows 11 workstation was used for the process below.
 1. Open a terminal and navigate to your desired project directory
 2. `mkdir myip_java`
 3. `cd myip_java`
-4. Create a file `pom.xml` with the contents of [pom.xml](pom.xml)
-5. Create a new file named **MyIPHandler.java** with the contents of [lambda_test.java](lambda_test.java)
- 
+4. `mkdir src`
+5. `mkdir src\main`
+6. `mkdir src\main\java`
+7. `mkdir src\main\java\com`
+8. `mkdir src\main\java\com\doritoes`
+9. Create new file in `src/main/java/com/doritoes` named  **MyIPHandler.java** with the contents of [lambda_test.java](lambda_test.java)
+10. Create a file **pom.xml** in your project folder root with the contents of [pom.xml](pom.xml)
+
 ## Build
 1. Open command line in the project folder (e.g., `myip_java`)
 2. `mvn package`
