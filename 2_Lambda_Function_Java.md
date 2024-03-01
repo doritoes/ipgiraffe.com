@@ -70,9 +70,9 @@ A Windows 11 workstation was used for the process below.
 ## Create our Function
 1. Click **Create a function**
     1. Author from scratch
-    2. Function name: **myIPFunctionRest**
+    2. Function name: **myIPFunctionJava**
     3. Runtime: **Java 21**
-    4. Change the defult Handler from example.Hello::handleRequest to ** com.example.MyIPHandler::handleRequest**
+    4. Change the defult Handler from example.Hello::handleRequest to **com.example.MyIPHandler::handleRequest**
     6. Architecture: the architure you build your function for
         - make sure it matches the function you built
     7. Leave the rest at defuaults, click **Create function**
