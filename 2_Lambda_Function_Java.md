@@ -80,3 +80,15 @@ A Windows 11 workstation was used for the process below.
       - Click **Save**
     - Click **Test** and the test should succeed
     - **WARNING** our test code current fails the API Gateway test! The Java code can't seem to handle the events properly.
+
+The answer is found here https://georgemao.medium.com/demystifying-java-aws-lambda-handlers-for-api-gateway-c1e77b7e6a8d
+
+~~~
+public class ApiGatewayEvent {
+    private String sourceIp;
+    private String xForwardedFor;
+    // ... other fields if needed
+
+    // Getters and setters
+}
+~~~
