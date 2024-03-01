@@ -52,23 +52,12 @@ A Windows 11 workstation was used for the process below.
 
 ## Build
 1. Open command line in the project folder (e.g., `myip_java`)
-2. `mvn package`
+2. `mvn clean package`
 3. The jar file will be created in the `target` folder
     - similar to `my-ip-function-1.0-SNAPSHOT.jar`
     - this is the JAR file containing your compiled Java code
-
-## Package the ZIP file for upload
-1. Option 1 - Powershell
-    1. Open a <u>**PowerShell**</u> command line in the project folder (e.g., `myip_java`)
-    2. `cd target`
-    3. `Compress-Archive -Path my-ip-function-1.0-SNAPSHOT.jar -DestinationPath lambda-handler-java.zip`
-2. Option 2 - Windows Explorer
-    1. Browse to the project folder and find the .jar file in the target directory
-    2. Right click on your .jar file and click **Compress to ZIP file**
-    3. Name it **lambda-handler-java.zip**
    
 # Create function
-
 ## Log in to AWS Console and Navigate to Lamba
 1. Browse to (https://console.aws.amazon.com) and log in
 2. In the search bar enter "Lamba" and click on **Lambda**
@@ -77,12 +66,12 @@ A Windows 11 workstation was used for the process below.
     1. Author from scratch
     2. Function name: **myIPFunctionJava**
     3. Runtime: **Java 21**
-    4. Change the defult Handler from example.Hello::handleRequest to **MyIPHandler::handleRequest**
+    4. Change the defult Handler from example.Hello::handleRequest to **com.doritoes.MyRequestHandler**
     6. Architecture: the architure you build your function for
         - make sure it matches the function you built
     7. Leave the rest at defuaults, click **Create function**
-2. In the *Code source* pane, click **Upload from** > **.zip file**
-    - Click **Upload**, select your **lambda-handler-java.zip** file code, and click **Save**
+2. In the *Code source* pane, click **Upload from** > **.jar file**
+    - Click **Upload**, select \file *my-ip-function-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
 3. Click **Test**
     - For the test event
       - Event name: **Test**
@@ -90,3 +79,4 @@ A Windows 11 workstation was used for the process below.
         - This provides a dummy IP address for the test to work
       - Click **Save**
     - Click **Test** and the test should succeed
+    - **WARNING** our test code current fails the API Gateway test! The Java code can't seem to handle the events properly.
