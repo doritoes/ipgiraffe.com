@@ -13,17 +13,30 @@ A Windows 11 workstation was used for the process below.
     - Run the installer (Defaults are fine)
       - C:\Program Files\Java\jdk-21\
     - Environment variables
-      - Search for "Environment Variables": Search for "Edit the system environment variables" in the Windows search bar
-      - Click "Environment Variables" in the System Properties window.
-      - JAVA_HOME: Create a new system variable named JAVA_HOME. Set its value to the JDK installation directory (e.g., C:\Program Files\Java\jdk-21).
-      - Path: Edit the existing Path system variable. Add a new entry pointing to the bin directory within your JDK installation (e.g., C:\Program Files\Java\jdk-21\bin).
-    - Verify
+      - Search for "Edit the system environment variables" in the Windows search bar
+      - Click **Environment Variables** in the System Properties window
+      - Under *System variables*, click **New...**
+        - Variable name: **JAVA_HOME**
+        - Variable value: set to the JDK installation directory (e.g., C:\Program Files\Java\jdk-21).
+        - Click **OK** and then click **OK**
+    - Verify from command line
       - `java -version`
       - `javac -version`
-- AWS Toolkit for VS Code: Install this extension in VS Code to help with AWS development and deployment tasks.
-    - todo
-- Maven or Gradle (Build Tool): Choose either Maven or Gradle to manage your project dependencies and build process. I'll provide instructions for Maven.
-    - todo
+2. Install Maven
+    - https://maven.apache.org/download.cgi
+    - Select and download "Binary zip archive" (for Windows)
+    - Unzip the file to your desired installation directory (e.g., `C:\Program Files\Apache\maven`)
+    - Environment variables
+      - Search for "Edit the system environment variables" in the Windows search bar
+      - Click **Environment Variables** in the System Properties window
+      - Under *System variables*, click **New...**
+        - Variable name: **M2_HOME**
+        - Variable value: set to the Maven installation directory (e.g., C:\Program Files\Apache\maven).
+      - Under *System variables*, edit
+        - Variable name: **PATH**
+        - Variable value: *add a new entry to the end*, path to the bin directory inside the Maven directory (e.g. C:\Program Files\Apache\maven\bin)
+    - Verify from command line
+      - `mvn -version`
 
 ## Create the Project
 todo
