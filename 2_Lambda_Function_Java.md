@@ -9,7 +9,6 @@ A Windows 11 workstation was used for the process below.
 1. Java Development Kit (JDK) - *login required*
     - Java Development Kit (JDK) version 21
     - https://www.oracle.com/java/technologies/downloads/
-    - Locate the "Java SE 21" section
     - Download the Windows x64 installer
     - Run the installer (Defaults are fine)
       - C:\Program Files\Java\jdk-21\
