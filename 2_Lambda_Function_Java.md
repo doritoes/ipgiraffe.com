@@ -40,21 +40,23 @@ A Windows 11 workstation was used for the process below.
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
-2. `mkdir myip_java`
-3. `cd myip_java`
-4. `mkdir src`
-5. `mkdir src\main`
-6. `mkdir src\main\java`
-7. `mkdir src\main\java\com`
-8. `mkdir src\main\java\com\doritoes`
-9. Create new file in `src/main/java/com/doritoes` named  **MyIPHandler.java** with the contents of [lambda_test.java](lambda_test.java)
-10. Create a file **pom.xml** in your project folder root with the contents of [pom.xml](pom.xml)
+2. `mkdir my-ip-function`
+3. `cd my-ip-function`
+4. Create a file **pom.xml** in your project folder root with the contents of [pom.xml](pom.xml)
+5. `mkdir src`
+6. `mkdir src\main`
+7. `mkdir src\main\java`
+8. `mkdir src\main\java\com`
+9. `mkdir src\main\java\com\doritoes`
+10. `cd src\main\java\com\doritoes`
+11. Create a file in `src/main/java/com/doritoes` named  **MyRequestHandler.java** with the contents of [lambda_test.java](lambda_test.java)
+12. 
 
 ## Build
-1. Open command line in the project folder (e.g., `myip_java`)
+1. Open command line in the project folder (e.g., `my-ip-function`)
 2. `mvn clean package`
 3. The jar file will be created in the `target` folder
-    - similar to `my-ip-function-1.0-SNAPSHOT.jar`
+    - similar to `MyRequestHandler-1.0-SNAPSHOT.jar`
     - this is the JAR file containing your compiled Java code
    
 # Create function
@@ -66,12 +68,12 @@ A Windows 11 workstation was used for the process below.
     1. Author from scratch
     2. Function name: **myIPFunctionJava**
     3. Runtime: **Java 21**
-    4. Change the defult Handler from example.Hello::handleRequest to **com.doritoes.MyRequestHandler**
+    4. Change the defult Handler from example.Hello::handleRequest to **com.doritoes.MyRequestHandler::handleRequest**
     6. Architecture: the architure you build your function for
         - make sure it matches the function you built
     7. Leave the rest at defuaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.jar file**
-    - Click **Upload**, select \file *my-ip-function-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
+    - Click **Upload**, select \file *MyRequestHandler-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
 3. Click **Test**
     - For the test event
       - Event name: **Test**
