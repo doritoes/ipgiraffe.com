@@ -6,51 +6,60 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.databind.ObjectMapper; 
 
-import java.util.HashMap;
-import java.util.Map;
+public class MyRequestHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
-public class MyRequestHandler implements RequestHandler<Object, APIGatewayProxyResponseEvent> {
+    private static final int SUCCESS_STATUS_CODE = 200;
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    // Data classes to hold event and response details 
+    public static class Event {
+        public String sourceIp;
+        public String xForwardedFor;
+    }
+
+    public static class Response {
+        public String body;
+        public int statusCode;  
+        public boolean isBase64Encoded; 
+    }
 
     @Override
-    public APIGatewayProxyResponseEvent handleRequest(Object input, Context context) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent();
-        response.setStatusCode(200);
+    public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent event, Context context) {
 
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "text/html"); // Set Content-Type to 'text/html'
-        response.setHeaders(headers);
+        Event inputEvent = null;
+        String ipAddress = "IP Address Not Found";
 
         try {
-            Map inputMap = objectMapper.convertValue(input, Map.class);
+            inputEvent = objectMapper.readValue(event.getBody(), Event.class); // Deserialize JSON from the event body
 
-            String value = null; 
-
-            if (inputMap.containsKey("xForwardedFor")) {
-                String values = (String) inputMap.get("xForwardedFor");
-                value = values.split(",")[0]; 
-            } else if (inputMap.containsKey("sourceIp")) {
-                value = (String) inputMap.get("sourceIp");
-            } else {
-                value = "No IP found"; 
+            if (inputEvent.xForwardedFor != null) {
+                ipAddress = inputEvent.xForwardedFor.split(",")[0];
+            } else if (inputEvent.sourceIp != null) {
+                ipAddress = inputEvent.sourceIp;
             }
 
-            // Build HTML response
-            String htmlResponse = 
-                "<html>" +
-                "<body>" +
-                "<h1>Your IP Address</h1>" +
-                "<p>" + value + "</p>" +
-                "</body>" +
-                "</html>";
-
-            response.setBody(htmlResponse);
-
         } catch (Exception e) {
-            response.setBody("{\"error\": \"Error processing input: " + e.getMessage() + "\"}");
-            response.setStatusCode(500);
-        }
+            // Handle JSON parsing exceptions if needed
+            System.err.println("Error parsing input event: " + e.getMessage());
+        } 
 
-        return response;
+        // Fixed HTML formatting: escape '#' characters
+        String htmlResponse = "<html>\n" +
+                      "<body>\n" +
+                      "  <h1>Your IP Address</h1>\n" +
+                      "  <p>" + ipAddress + "</p>\n" +
+                      "</body>\n" +
+                      "</html>\n";
+
+        Response response = new Response();
+        response.body = htmlResponse;
+        response.statusCode = SUCCESS_STATUS_CODE;
+        response.isBase64Encoded = false; 
+
+        return new APIGatewayProxyResponseEvent()
+                .withHeaders(null) 
+                .withStatusCode(response.statusCode)
+                .withBody(response.body)
+                .withIsBase64Encoded(response.isBase64Encoded);
     }
 }
