@@ -41,7 +41,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     - `linker = "x86_64-linux-gnu-gcc"`
 6. Edit the `Cargo.toml` file to add the dependencies under `[dependencies]`
     - [dependencies.txt](dependencies.txt)
-7. better way: cargo add aws_lambda_events http lambda_runtime serde serde_json tokio
+    - Alternative method: `cargo add aws_lambda_events http lambda_runtime serde serde_json tokio`
 7.  Edit the handler `src/main.rs` and insert the example code from [lambda_test.rs](lambda_test.rs)
  
 ## Cross-Compilation for Amazon Linux 2023
@@ -54,9 +54,9 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
 ## Package the ZIP file for upload
 4. Locate compiled binary
     - located in the target/x86_64-unknown-linux-musl/release directory within your project
-    - The filename will likely be the same as your project name (e.g., ip_lambda_rust)
+    - The filename will likely be the same as your project name (e.g., myip_rust)
 5. Create the bootstrap file
-    - `cp ip_lambda_rust boostrap`
+    - `cp myip_rust boostrap`
 6. Create the ZIP file
     - `zip lambda-handler-rust.zip boostrap`
 5. Copy the ZIP file back to your Windows host
