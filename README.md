@@ -24,17 +24,14 @@ Here are the goals I have for this project. If you would like to encourage me to
 - Configured CloudFront including SSL certificate
 - When proxied by CloudFront or other proxies, leveral X-Forwarded-For headers to show the client's IP address
 - Apply giraffe-themed styling to the page
-- Added HTML comments to the source code
-### Doing
-- document step-by-step how I did this so you can learn from my experience
-### Will Do
-- text other runtimes
-### Might Do
 - Base-64 in-page image of a giraffe
+- Added HTML comments to the source code
+- Created and tested example lambda functions in 7 languages running a variety of runtimes
+### Might Do
 - Create another site based on GCP serverless computing
 - Create another site based on Azure serverless computing
 ## Out of Scope
-- The original goal of deploying the Lambda function, distributed API Gateways, and Cloudfront configurations using CloudFormation is now out of score due to the limitations of AWS to meet my needs
+- The original goal of deploying the Lambda function, distributed API Gateways, and Cloudfront configurations using CloudFormation is now out of score due to the limitations of AWS to meet my specific needs
 
 # Step-by-Step
 1. [Pre-Requisites](1_Prerequisites.md)
