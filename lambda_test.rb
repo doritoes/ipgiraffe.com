@@ -17,12 +17,7 @@ def lambda_handler(event:, context:)
     </body>
     </html>
   HTML
-  # Construct the JSON response directly
-  response = {
-    "body": value
-  }
-
-  # Return with appropriate headers
+  
   {
     statusCode: 200,
     headers: { 'Content-Type': 'text/html' },
