@@ -24,8 +24,7 @@ These instructions were tested on a Windows 11 system.
     -  `dotnet new install Amazon.Lambda.Templates`
 8. Create project and switch directory
     - `dotnet new lambda.EmptyFunction -n myip`
-    - `cd src\myip`
-    - `cd myip`
+    - `cd myip\src\myip`
 9. Add packages to the project
     - `dotnet add package Amazon.Lambda.Serialization.Json`
     - `dotnet add package Amazon.Lambda.Serialization.SystemTextJson`
@@ -41,7 +40,7 @@ These instructions were tested on a Windows 11 system.
 11. Build the Project
     - `dotnet build -c Release`
 12. Publish the Project
-    - `dotnet publish -c Release -r linux-x64  -p:PublishReadyToRun=true -o ./bin/Release/net8.0/publish`
+    - `dotnet publish -c Release -r linux-x64 -p:PublishReadyToRun=true -o ./bin/Release/net8.0/publish`
 # Package the ZIP file for upload
 1. Navigate to your project folder, then to the `src\myip\bin\Release\net8.0\publish` folder
 2. Create a zip file using using your preferred compression tool
