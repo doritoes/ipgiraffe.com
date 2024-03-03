@@ -40,8 +40,8 @@ A Windows 11 workstation was used for the process below.
 
 ## Create the Project
 1. Open a terminal and navigate to your desired project directory
-2. `mkdir my-ip-function`
-3. `cd my-ip-function`
+2. `mkdir my-java-lambda-project`
+3. `cd my-java-lambda-project`
 4. Create a file **pom.xml** in your project folder root with the contents of [pom.xml](pom.xml)
 5. `mkdir src`
 6. `mkdir src\main`
@@ -50,10 +50,9 @@ A Windows 11 workstation was used for the process below.
 9. `mkdir src\main\java\com\doritoes`
 10. `cd src\main\java\com\doritoes`
 11. Create a file in `src/main/java/com/doritoes` named  **MyRequestHandler.java** with the contents of [lambda_test.java](lambda_test.java)
-12. 
 
 ## Build
-1. Open command line in the project folder (e.g., `my-ip-function`)
+1. Open command line in the project folder (e.g., `my-java-lambda-project`)
 2. `mvn clean package`
 3. The jar file will be created in the `target` folder
     - similar to `MyRequestHandler-1.0-SNAPSHOT.jar`
@@ -73,7 +72,7 @@ A Windows 11 workstation was used for the process below.
         - make sure it matches the function you built
     7. Leave the rest at defuaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.jar file**
-    - Click **Upload**, select \file *MyRequestHandler-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
+    - Click **Upload**, select file **MyRequestHandler-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
 3. Click **Test**
     - For the test event
       - Event name: **Test**
@@ -81,16 +80,3 @@ A Windows 11 workstation was used for the process below.
         - This provides a dummy IP address for the test to work
       - Click **Save**
     - Click **Test** and the test should succeed
-    - **WARNING** our test code current fails the API Gateway test! The Java code can't seem to handle the events properly.
-
-The answer is found here https://georgemao.medium.com/demystifying-java-aws-lambda-handlers-for-api-gateway-c1e77b7e6a8d
-
-~~~
-public class ApiGatewayEvent {
-    private String sourceIp;
-    private String xForwardedFor;
-    // ... other fields if needed
-
-    // Getters and setters
-}
-~~~
