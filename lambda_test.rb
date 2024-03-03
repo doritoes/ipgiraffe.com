@@ -1,32 +1,31 @@
 require 'json'
 
 def lambda_handler(event:, context:)
-  client_ip = "IP Address Not Found"
-
-  # Check 'X-Forwarded-For' for potential multiple IPs
-  if event['headers'] && x_forwarded_for = event['headers']['X-Forwarded-For']
-    client_ip = x_forwarded_for.split(',')[0]
-  end
-
-  # Try API Gateway's sourceIp if not found
-  if client_ip == "IP Address Not Found" && event['requestContext']['identity']['sourceIp']
-    client_ip = event['requestContext']['identity']['sourceIp']
+  if event.key?('xForwardedFor')
+    value = event['xForwardedFor'].split(',')[0]
+  elsif event.key?('sourceIp')
+    value = event['sourceIp']
+  else
+    value = 'IP Address Not Found'
   end
 
   html_response = <<~HTML
     <html>
     <body>
         <h1>Your IP Address</h1>
-        <p>#{client_ip}</p>
+        <p>#{value}</p>
     </body>
     </html>
   HTML
+  # Construct the JSON response directly
+  response = {
+    "body": value
+  }
 
+  # Return with appropriate headers
   {
     statusCode: 200,
-    body: html_response,
-    headers: {
-      'Content-Type' => 'text/html'
-    }
+    headers: { 'Content-Type': 'text/html' },
+    body: html_response
   }
 end
