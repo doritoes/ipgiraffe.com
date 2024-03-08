@@ -9,7 +9,7 @@ It is possible to  configure health checks within CloudFront to automatically ro
 2. In the search bar enter "CloudFront" and click on **CloudFront**
    
 ## Create a CloudFront Distribution
-If prompted for a distributio ntype, select "Web" distribution and proceed.
+If prompted for a distribution type, select "Web" distribution and proceed.
 
 1. Click **Create a CloudFront distribution**
   - Origin name: *paste your invoke URL here*
