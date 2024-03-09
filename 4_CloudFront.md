@@ -21,7 +21,7 @@ If prompted for a distribution type, select "Web" distribution and proceed.
   - Default cache behavior leave at default values
   - Click **Create Origin**
   - Viewer
-    - **Redirect HTTP to HTTPS**
+    - **Redirect HTTP to HTTPS** (if you are getting "too many redirects", try **HTTP and HTTPS**)
     - Allowed HTTP methods: **GET, HEAD**
   - Caching (Important):
     - Choose CachingDisabled or set a very short TTL (Time-to-Live) to ensure the latest IP address is always retrieved.
@@ -50,7 +50,17 @@ If prompted for a distribution type, select "Web" distribution and proceed.
     - From the drop-down select your new certificate
     - Click **Create distribution**. Be patient as the deployment completes.
     - **TAKE NOTE** of the *distribution domain name* - you will need this (my example: https://d3tv86pu6k48e5.cloudfront.net)
-
+2. Enable caching for your static content (optional)
+    - Open your CloudFront Distribution
+    - Click on the **Behaviors** tab
+    - Click **Create behavior**
+    - Path pattern: `/static/*`
+    - Origin and origin groups: *select your ALB*
+    - Viewer protocol policy: **Redirect HTTP to HTTPS**
+    - Allowed HTTP methods: **GET, HEAD**
+    - Cache policy: **CachingOptimized**
+    - Origin request policy: **AllViewer**
+    - Click **Create behavior**
 ## Fix the incorrect IP address
 The source IP that the Lamba function sees will be the last cloudfront host in the path. That's not what we want. We want the client IP address.
 
