@@ -51,6 +51,7 @@ My favorite IP address checking web sites:
 - http://www.ipdragon.com
 - http://ipturtle.com
 - https://ip.me
+- https://whatismyip.org/
 
 More "IP Animals":
 - https://ipmonkey.com
