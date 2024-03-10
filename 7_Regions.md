@@ -138,7 +138,10 @@ Overview
 8. Click **Save changes**
 
 ### Testing
-First we will generate traffic source from different global regions, followed by confirming traffic is reaching all regions.
+Generate traffic source from different global regions, followed by confirming traffic is reaching all regions.
+
+Test the different results of using Cloudfront at `ipgiraffe.com` vs DNS latencey at `app.ipgiraffe.com`
+
 #### Generate traffic with Online Speed Test Tools
 These have limited locations, but can quickly renerate traffic to your different regions.
 - Pingdom: https://tools.pingdom.com/ (select from *Test from*)
