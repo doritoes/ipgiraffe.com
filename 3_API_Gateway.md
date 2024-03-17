@@ -18,7 +18,7 @@ The next step is to create the API Gateway. This acts as a "front door" for your
     - Method type: **GET**
     - Integration type: **Lambda function** (default)
     - Lambda proxy integration: **OFF** (default)
-    - Lambda function: Click in the the text box and the function you created will be listed; select it
+    - Lambda function: Click in the text box and the function you created will be listed; select it
     - Click **Create method**
 ### Method Request
 A diagram of the client and how it communicates to/from the Lambda integration.
@@ -44,7 +44,7 @@ The default settings are what we want: no authorization or API key requirement
     - Click **Deploy**
 8. Copy the Invoke URL to a browser.
 
-The currrent results you will get are JSON. For example:
+The current results you will get are JSON. For example:
 ~~~
 {"statusCode": 200, "body": "\n    <html>\n    <body>\n       <h1>Your IP Address</h1>\n       <p>123.45.67.89</p>\n    </body>\n    </html>\n    ", "headers": {"Content-Type": "text/html"}}
 ~~~
