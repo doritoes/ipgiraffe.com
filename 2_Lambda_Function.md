@@ -27,11 +27,11 @@ If you create a function URL and try to test it in you will get an internal serv
 
 # Learn More
 ## Minification
-You can reduce your HTML to use less memory and transfer less bytes across the Internet using "minification" techniches. Trying pasting HTML code into the online minifier at (https://codebeautify.org/minify-html)
+You can reduce your HTML to use less memory and transfer less bytes across the Internet using "minification" techniques. Trying pasting HTML code into the online minifier at (https://codebeautify.org/minify-html)
 
 Similarly you can minify your Python code at (https://python-minifier.com/)
 
-Using both, I created a 1460 byte version of the function, which stated at 2.96 KB.
+Using both, I created a 1460 byte version of the function, which started at 2.96 KB.
 
 ## Experiment with other code languages
 [Instructions for Go](2_Lambda_Function_Go.md)
