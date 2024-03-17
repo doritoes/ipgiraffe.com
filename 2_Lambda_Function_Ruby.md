@@ -5,7 +5,7 @@ Where we demonstrate creating a Lambda function written in Ruby on the Ruby runt
     - Author from scratch
     - Function name: **myIPFunctionRuby**
     - Runtime: **Ruby 3.2**
-    - Architecture: the architure you want to run on
+    - Architecture: the architecture you want to run on
     - Click **Create function**
 2. In the *Code Source* pane, replace the example function with the function listed below
     - [lambda_test.rb](lambda_test.rb) - *easy to read simple version used in testing*
