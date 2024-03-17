@@ -1,13 +1,13 @@
 # Next Steps
 Congratulations on completing this exercise! You have learned and demonstrated some new cloud skills.
 
-I recommend you consider the following to expand on your new knowleged. Make some predictions, do the research, then test it to see for yourself.
+I recommend you consider the following to expand on your new knowlege. Make some predictions, do the research, then test it to see for yourself.
 
-## Look in to arm64 vs x86_64 Architecture
+## Look into arm64 vs x86_64 Architecture
 What are the cost implications?
 - ARM64 (Graviton2) - cheaper but less x86-specific optimizations
   - how much cheaper?
-  - does your code ned modifications to run on ARM64?
+  - does your code need modifications to run on ARM64?
 - x86_64 - compatibility
 
 ## Try Different Runtimes
