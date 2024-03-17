@@ -1,8 +1,8 @@
 # Create CloudFront
 
-The next step is to create the CloudFront distribution. This acts as a global content delivery network (CDN), caching API Gateway responses closer to end-users, reducing latency and improving the overall performance. We will not incur the cost of enabling the WAF (Web Application Firweall) as the app simply returns HTML. There is no API to protect. Another reason we are using Cloudfront is that in later steps we will be adding more instances to additional AWS regions. CloudFront will distribute traffic to the nearest region (latency-based routing).
+The next step is to create the CloudFront distribution. This acts as a global content delivery network (CDN), caching API Gateway responses closer to end-users, reducing latency and improving the overall performance. We will not incur the cost of enabling the WAF (Web Application Firewall) as the app simply returns HTML. There is no API to protect. Another reason we are using CloudFront is that in later steps we will be adding more instances to additional AWS regions. CloudFront will distribute traffic to the nearest region (latency-based routing).
 
-It is possible to  configure health checks within CloudFront to automatically route traffic away from unhealthy regions should an issue arrise. **IMPORTANT** - be mindful of potential cross-region data transfer costs when using multiple origins in different regions.
+It is possible to configure health checks within CloudFront to automatically route traffic away from unhealthy regions should an issue arise. **IMPORTANT** - be mindful of potential cross-region data transfer costs when using multiple origins in different regions.
 
 ## Log in to AWS Console and Navigate to CloudFront
 1. Browse to (https://console.aws.amazon.com) and log in
@@ -31,7 +31,7 @@ If prompted for a distribution type, select "Web" distribution and proceed.
     - Our function is not an API (just simple HTML) and doesn't need this expensive add-on
   - Settings
     - Price class: To reduce cost, set to **Use only North America and Europe**
-    - Altername domain name (CNAME) - optional
+    - Alternate domain name (CNAME) - optional
       - Click **Add item**
           - add the domain names you will use, see my examples
           - ipgiraffe.com
@@ -62,11 +62,11 @@ If prompted for a distribution type, select "Web" distribution and proceed.
     - Origin request policy: **AllViewer**
     - Click **Create behavior**
 ## Fix the incorrect IP address
-The source IP that the Lamba function sees will be the last cloudfront host in the path. That's not what we want. We want the client IP address.
+The source IP that the Lamba function sees will be the last CloudFront host in the path. That's not what we want. We want the client IP address.
 
 We will configure the X-Forwarded-For header to get the client's real IP address.
 
-On the left menu bar below Distributions there is Policies.
+On the left menu bar below Distributions find *Policies*.
 
 1. Click on **Policies**
 2. Click **Origin Request** from the ribbon menu
