@@ -1,13 +1,13 @@
 # Next Steps
-Congratuluations on completing this exercise! You have learned and demonstrated some new cloud skills.
+Congratulations on completing this exercise! You have learned and demonstrated some new cloud skills.
 
-I recommend you consider the following to expand on your new knowleged. Make some predictions, do the research, then test it to see for yourself.
+I recommend you consider the following to expand on your new knowlege. Make some predictions, do the research, then test it to see for yourself.
 
-## Look in to arm64 vs x86_64 Architecture
+## Look into arm64 vs x86_64 Architecture
 What are the cost implications?
 - ARM64 (Graviton2) - cheaper but less x86-specific optimizations
   - how much cheaper?
-  - does your code ned modifications to run on ARM64?
+  - does your code need modifications to run on ARM64?
 - x86_64 - compatibility
 
 ## Try Different Runtimes
@@ -35,3 +35,8 @@ Which runtime has the fastest cold start? (cold start time is included in the bi
 - Slowest are interpreted languages that have multiple dependencies and Java
   - Java (JVM initialization, garbage collection)
   - Ruby
+
+## Compare the cost of AWS Lamba versus other technologies
+- Heroku - https://www.rdegges.com/2018/to-30-billion-and-beyond/
+- AWS Fargate https://www.cloudzero.com/blog/fargate-vs-lambda/
+- https://www.pricekite.io/

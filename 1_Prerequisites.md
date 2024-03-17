@@ -2,7 +2,7 @@
 Required knowledge and understanding
 - Cloud Computing basics and what AWS is (Free Udemy course [link](https://www.udemy.com/course/introduction-to-aws-cloud-computing/))
 - What [serverless computing](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-serverless-computing) is
-  - We will be be using [AWS Lambda](https://aws.amazon.com/pm/lambda/) for the serverless computing provider
+  - We will be using [AWS Lambda](https://aws.amazon.com/pm/lambda/) for the serverless computing provider
   - [GCP](https://cloud.google.com/cloud-console) alternative: [Google Cloud Functions](https://cloud.google.com/functions)
   - Azure alternatives: [Azure Functions](https://azure.microsoft.com/en-us/products/functions) and [Azure WebJobs](https://learn.microsoft.com/en-us/azure/app-service/webjobs-create)
   - Free Udemy course [link](https://www.udemy.com/course/introduction-to-serverless-aws/)

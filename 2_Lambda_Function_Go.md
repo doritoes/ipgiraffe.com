@@ -55,9 +55,9 @@ Creating the Zip file is extremely challenging on Windows, and the requirements 
     1. Author from scratch
     2. Function name: **myIPFunctionGo**
     3. Runtime: **Amazon Linux**
-    4. Architecture: the architure you build your function for
+    4. Architecture: the architecture you build your function for
         - make sure it matches the function you built
-    5. Leave the rest at defuaults, click **Create function**
+    5. Leave the rest at defaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.zip file**
     - Click **Upload**, select your **lambda-handler.zip** file code, and click **Save**
 3. Click **Test**

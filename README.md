@@ -14,7 +14,7 @@ This breaks the mold of the typical Lambda use case
 - Not an API with an authentication backend
 
 # Project Goals
-Here are the goals I have for this project. If you would like to encourage me to add additional goals or to complete these goals,  I'm open to [contributions](https://account.venmo.com/u/unclenuc) to pay my Cloud bills.
+Here are the goals I have for this project. If you would like to encourage me to add additional goals or to complete these goals, I'm open to [contributions](https://account.venmo.com/u/unclenuc) to pay my Cloud bills.
 ## In Scope
 ### Completed
 - Lambda function returns HTML
@@ -22,7 +22,7 @@ Here are the goals I have for this project. If you would like to encourage me to
 - Configured API Gateway
 - Configured domain name
 - Configured CloudFront including SSL certificate
-- When proxied by CloudFront or other proxies, leveral X-Forwarded-For headers to show the client's IP address
+- When proxied by CloudFront or other proxies, leverage X-Forwarded-For headers to show the client's IP address
 - Apply giraffe-themed styling to the page
 - Base-64 in-page image of a giraffe
 - Added HTML comments to the source code
@@ -31,7 +31,7 @@ Here are the goals I have for this project. If you would like to encourage me to
 - Create another site based on GCP serverless computing
 - Create another site based on Azure serverless computing
 ## Out of Scope
-- The original goal of deploying the Lambda function, distributed API Gateways, and Cloudfront configurations using CloudFormation is now out of score due to the limitations of AWS to meet my specific needs
+- The original goal of deploying the Lambda function, distributed API Gateways, and CloudFront configurations using CloudFormation is now out of scope due to the limitations of AWS to meet my specific needs
 
 # Step-by-Step
 1. [Pre-Requisites](1_Prerequisites.md)
@@ -48,9 +48,11 @@ My favorite IP address checking web sites:
 - https://ipgoat.com
 - https://ipchicken.com
 - http://icanhazip.com (just the IP address, great from command line: `curl http://icanhazip.com`)
+- https://api.ipify.org/ (another bare IP address service)
 - http://www.ipdragon.com
 - http://ipturtle.com
 - https://ip.me
+- https://whatismyip.org/
 
 More "IP Animals":
 - https://ipmonkey.com
@@ -63,4 +65,8 @@ My IP address checking web sites:
 My other web sites:
 - https://unclenuc.com
 - https://systems-monitor.com/
-- https://www.cottagewifi.com/ (I have a lot of content that I want to share here)
+- https://www.cottagewifi.com/ (I have a lot of content that I want to share there)
+
+To find your private LAN IP address:
+- https://www.avast.com/c-how-to-find-ip-address
+- https://nordvpn.com/what-is-my-ip/

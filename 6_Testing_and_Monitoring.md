@@ -21,13 +21,13 @@ From a command line test both DNS lookups. For example:
     - https://dnschecker.org/#CNAME/www.ipgiraffe.com
    
 ## Monitoring
-Feel free to experiment with CloudWatch (search for "CloudWatch" in the AWS console). Be aware that configuring monitoring will generated additional traffic (load) to your Lamba function, API gateway, and to CloudFront.
+Feel free to experiment with CloudWatch (search for "CloudWatch" in the AWS console). Be aware that configuring monitoring will generate additional traffic (load) to your Lamba function, API gateway, and to CloudFront.
 
-Start with *view  automatic dashboards* and work from there.
+Start with *view automatic dashboards* and work from there.
 
 CloudWatch > Metrics > Lambda
 - Invocations
-- Average duration (you are build by the duration times the amount of memory allocated)
+- Average duration (you are billed by the duration times the amount of memory allocated)
 - Errors
 - Throttles (when the volume of requests to your function exceeds its available concurrency limit (how many instances of the Lambda function can run simultaneously)
 
@@ -35,9 +35,9 @@ CloudWatch > Metrics > API Gateway
 - HTTP errors
 - Latency
 
-CloudWatch > Metrics > Cloudfront
+CloudWatch > Metrics > CloudFront
 - Request count
-- Error  rates
+- Error rates
 
 # Learning More
 How many instances can your application scale to?
@@ -50,7 +50,7 @@ How many instances can your application scale to?
     - Use unreserved amount concurrency: 1000
 
 **IMPORTANT notes**
-- Account vs. Region: Lambda concurrency limits exist both at the <u>account level</u> (across all regions) and at a <u>per-region level</u>.
+- Account vs. Region: Lambda concurrency limits exist both at the <ins>account level</ins> (across all regions) and at a <ins>per-region level</ins>.
 - Reserved vs. Unreserved:
   - Reserved concurrency: A portion of concurrency you've specifically allocated to a function.
   - Unreserved concurrency: The remaining concurrency available for use by any of your Lambda functions in the account/region.

@@ -1,7 +1,7 @@
 # Create Rust Lambda Function
 Where we demonstrate creating a Lambda function written in Rust on the Amazon Linux runtime.
 
-A Windows 11 workstation was used for the process below. It is a challenge to cross-compile for Amazon Linux 2023 from Windows 11. Therefore are going to install under WSL (Windows Subsystem for Linux).
+A Windows 11 workstation was used for the process below. It is a challenge to cross-compile for Amazon Linux 2023 from Windows 11. Therefore, we are going to install under WSL (Windows Subsystem for Linux).
 
 *See [https://docs.aws.amazon.com/linux/al2023/ug/rust.html](https://stratusgrid.com/blog/aws-lambda-rust-how-to-deploy-aws-lambda-functions)*
 
@@ -18,7 +18,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     - Click "Get" to install the distribution
 3. Setup WSL
     - Initial Launch: After the installation, open a new terminal/command prompt, type wsl, and press enter. This will initialize and launch your chosen Linux distribution.
-    - Create a User: You'll be asked to create a Unix username and password
+    - Create a User: You will be asked to create a Unix username and password
 4. Install Rust in WSL
     - Open a terminal within WSL
     - Follow the Rust installation instructions
@@ -63,7 +63,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     - From Windows: Windows-R, `\\wsl$`
     - Open your Linux distribution, then home directory, your user directory, and nagivate from there
     - Alternatively, you can copy the file from within WSL back to a folder on the host
-      - If your have a directory in c:\Tools
+      - If you have a directory in c:\Tools
       - `cp <filename> /mnt/c/Tools`
 
 # Create function
@@ -77,7 +77,7 @@ A Windows 11 workstation was used for the process below. It is a challenge to cr
     3. Runtime: **Amazon Linux**
     4. Architecture: the architure you build your function for
         - make sure it matches the function you built
-    5. Leave the rest at defuaults, click **Create function**
+    5. Leave the rest at defaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.zip file**
     - Click **Upload**, select your **lambda-handler-rust.zip** file code, and click **Save**
 3. Click **Test**
