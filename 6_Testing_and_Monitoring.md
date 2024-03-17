@@ -50,7 +50,7 @@ How many instances can your application scale to?
     - Use unreserved amount concurrency: 1000
 
 **IMPORTANT notes**
-- Account vs. Region: Lambda concurrency limits exist both at the <ins>account level</ins> (across all regions) and at a <u>per-region level</u>.
+- Account vs. Region: Lambda concurrency limits exist both at the <ins>account level</ins> (across all regions) and at a <ins>per-region level</ins>.
 - Reserved vs. Unreserved:
   - Reserved concurrency: A portion of concurrency you've specifically allocated to a function.
   - Unreserved concurrency: The remaining concurrency available for use by any of your Lambda functions in the account/region.
