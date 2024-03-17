@@ -19,7 +19,7 @@ Overview:
 2. In the search bar enter "Lambda" and click on **Lambda**
 3. Locate the Region dropdown at the top of the AWS Console next to your account name
 4. Click the dropdown and select the region you want to add
-5. Create the Lambba function (refer to [Create Lambda Function](2_Lambda_Function.md))
+5. Create the Lambda function (refer to [Create Lambda Function](2_Lambda_Function.md))
 6. Create the API gateway (refer to [Create API Gateway](3_API_Gateway.md))
 7. Navigate the CloudFront in the AWS console
     - note the region is *Global* for CloudFront
@@ -51,7 +51,7 @@ Overview:
 We are going to add our configuration to multiple regions and allow CloudFront to direct users to the closest region.
 
 Overview
-- create a matching SSL certificate in ACM <u>in the additional region</u>
+- create a matching SSL certificate in ACM <ins>in the additional region</ins>
 - configure Route 53 to have two records for the same domain name and set the routing policy to *latency*
 
 ### Steps
@@ -115,11 +115,11 @@ Overview
     - Alias: **YES**
     - Route traffic to:
       - Select **API Gateway REST APIs** from the dropdown menu
-      - Region: Chooose the region
+      - Region: Choose the region
     - Value: Enter the domain name of your API gateway in this region (my example is 59o1ou36kb.execute-api.us-east-1.amazonaws.com)
     - Routing Policy: **Latency**
     - Region: Select your first region (in my case us-east-1)
-    - Healtch check ID - options: **Leave blank**
+    - Health check ID - options: **Leave blank**
     - Evaluate target health: **NO** (default) to save cost, or enable to allow Route 53 to monitor your API Gateway endpoint
     - Record ID: **app-us-east-1**
 7. Click **Add another record** and repeat for your second region (in my case us-west-2)
@@ -138,26 +138,26 @@ Overview
 8. Click **Save changes**
 
 ### Testing
-Generate traffic source from different global regions, followed by confirming traffic is reaching all regions.
+Generate traffic sourced from different global regions, followed by confirming traffic is reaching all regions.
 
-Test the different results of using Cloudfront at `ipgiraffe.com` vs DNS latencey at `app.ipgiraffe.com`
+Test the different results of using CloudFront at `ipgiraffe.com` vs DNS latency at `app.ipgiraffe.com`
 
 #### Generate traffic with Online Speed Test Tools
-These have limited locations, but can quickly renerate traffic to your different regions.
+These have limited locations, but can quickly generate traffic to your different regions.
 - Pingdom: https://tools.pingdom.com/ (select from *Test from*)
 - WebPageTest: https://www.webpagetest.org/ (advanced options let you select more locations)
 
-####  Generate traffic with VPN Services
+#### Generate traffic with VPN Services
 Use a VPN service (some have free options) that lets you connect through servers in various countries. In this way you can access the site from, say, Seattle.
 
-#### Validating Lambda funtion usage
+#### Validating Lambda function usage
 1. In the search bar enter "CloudWatch" and click on **CloudWatch**
 2. From the left Menu, expand **Metrics** and click **All metrics**
 3. Find the *Lambda* chicklet and click **View automatic dashboard**
 4. Use region dropdown to confirm you have invocations in each region
 
 # Learning More
-- Think about pricing model of CloudFront affects your ability to add your application to regious outside US and Europe
+- Think about pricing model of CloudFront affects your ability to add your application to regions outside US and Europe
 - Consider how additional regions could reduce your Lambda concurrency and possibly keep you in the Lambda "Free Tier"
 - Consider how having an infrequently-used region could cause a "cold start" for user
 - Generally think minutes, not hours for the timeout until a "cold start" is required. It's best to assume frequent cold starts.
