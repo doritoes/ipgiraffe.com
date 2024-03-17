@@ -1,5 +1,5 @@
 # Next Steps
-Congratuluations on completing this exercise! You have learned and demonstrated some new cloud skills.
+Congratulations on completing this exercise! You have learned and demonstrated some new cloud skills.
 
 I recommend you consider the following to expand on your new knowleged. Make some predictions, do the research, then test it to see for yourself.
 
@@ -35,3 +35,8 @@ Which runtime has the fastest cold start? (cold start time is included in the bi
 - Slowest are interpreted languages that have multiple dependencies and Java
   - Java (JVM initialization, garbage collection)
   - Ruby
+
+## Compare the cost of AWS Lamba versus other technologies
+- Heroku - https://www.rdegges.com/2018/to-30-billion-and-beyond/
+- AWS Fargate https://www.cloudzero.com/blog/fargate-vs-lambda/
+- https://www.pricekite.io/
