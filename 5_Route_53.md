@@ -19,10 +19,10 @@ The final step to bring (https://www.ipgiraffe.com) is pointing our domain to th
     - Click **Create records**
 4. Create CNAME record for www.ipgiraffe.com
     - Click **Create record**
-    - Record name: www, ie. www.ipgiraffe.com
+    - Record name: www (i.e., www.ipgiraffe.com)
     - Record type: **CNAME**
     - Alias: **OFF**
-    - Value: **Your domain**, i.e. ipgiraffe.com
+    - Value: **Your domain** (i.e., ipgiraffe.com)
     - TTL: **300** (default) or set to 60 seconds for your lab testing
     - Routing policy: **Simple routing** (default)
     - Click **Create records**
