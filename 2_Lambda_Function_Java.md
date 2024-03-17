@@ -67,10 +67,10 @@ A Windows 11 workstation was used for the process below.
     1. Author from scratch
     2. Function name: **myIPFunctionJava**
     3. Runtime: **Java 21**
-    4. Change the defult Handler from example.Hello::handleRequest to **com.doritoes.MyRequestHandler::handleRequest**
-    6. Architecture: the architure you build your function for
+    4. Change the default Handler from example.Hello::handleRequest to **com.doritoes.MyRequestHandler::handleRequest**
+    6. Architecture: the architecture you build your function for
         - make sure it matches the function you built
-    7. Leave the rest at defuaults, click **Create function**
+    7. Leave the rest at defaults, click **Create function**
 2. In the *Code source* pane, click **Upload from** > **.jar file**
     - Click **Upload**, select file **MyRequestHandler-1.0-SNAPSHOT.jar** within your *target* folder, and click **Save**
 3. Click **Test**
