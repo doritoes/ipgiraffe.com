@@ -161,4 +161,4 @@ Use a VPN service (some have free options) that lets you connect through servers
 - Consider how additional regions could reduce your Lambda concurrency and possibly keep you in the Lambda "Free Tier"
 - Consider how having an infrequently-used region could cause a "cold start" for user
 - Generally think minutes, not hours for the timeout until a "cold start" is required. It's best to assume frequent cold starts.
-- For critical applications, pay for *provisioned concurrency* which keeps a set number if instances "warm" (you are charged for every GB-second <u>plus</u> a small fee for each request your Lambda function handles while using provisioned concurrency. This can very per AWS region. Some provisioned concurrency usage may be included in the free tier.
+- For critical applications, pay for *provisioned concurrency* which keeps a set number if instances "warm" (you are charged for every GB-second <ins>plus</ins> a small fee for each request your Lambda function handles while using provisioned concurrency. This can very per AWS region. Some provisioned concurrency usage may be included in the free tier.
