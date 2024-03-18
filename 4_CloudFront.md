@@ -12,14 +12,13 @@ It is possible to configure health checks within CloudFront to automatically rou
 If prompted for a distribution type, select "Web" distribution and proceed.
 
 1. Click **Create a CloudFront distribution**
-  - Origin name: *paste your invoke URL here*
+  - Origin name: *paste your invoke URL here or select from drowdown*
     - You can find this in your API Gateway console
     - Example: (https://59o1ou36kb.execute-api.us-east-1.amazonaws.com/Prod)
   - Origin path - optional: *leave blank*
   - Name: **myIP-backend-prod**
   - Leave the remaining Origin settings at their default values
   - Default cache behavior leave at default values
-  - Click **Create Origin**
   - Viewer
     - **Redirect HTTP to HTTPS** (if you are getting "too many redirects", try **HTTP and HTTPS**)
     - Allowed HTTP methods: **GET, HEAD**
