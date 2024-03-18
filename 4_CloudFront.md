@@ -15,7 +15,7 @@ If prompted for a distribution type, select "Web" distribution and proceed.
   - Origin name: *paste your invoke URL here or select from drowdown*
     - You can find this in your API Gateway console
     - Example: (https://59o1ou36kb.execute-api.us-east-1.amazonaws.com/Prod)
-  - Origin path - optional: *leave blank*
+    - The "/Prod" portion will be automatically moved to the *Origin path*
   - Name: **myIP-backend-prod**
   - Leave the remaining Origin settings at their default values
   - Default cache behavior leave at default values
@@ -77,3 +77,8 @@ On the left menu bar below Distributions find *Policies*.
     - Click **Save changes**
 
 The correct list IP address will now be returned.
+
+## Test
+1. CloudFront > Ditributions > click on your distribution
+2. Copy the *Domain distribution domain name* (i.e., https://d2g38ne1r71ndz.cloudfront.net)
+3. Paste into your browser and the page will load
