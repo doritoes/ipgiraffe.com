@@ -44,6 +44,12 @@ Which runtime has the fastest cold start? (cold start time is included in the bi
   - Java (JVM initialization, garbage collection)
   - Ruby
 
+## Investigate additional Route 53 routing policies
+What is the difference between:
+- Latency (network latency, closest health region)
+- Geolocation (compliance reasons, serving different content per region)
+- Geoproximity (adds bias values; customizable Geolocation)
+
 ## Compare the cost of AWS Lamba versus other technologies
 - Heroku - https://www.rdegges.com/2018/to-30-billion-and-beyond/
 - AWS Fargate https://www.cloudzero.com/blog/fargate-vs-lambda/
