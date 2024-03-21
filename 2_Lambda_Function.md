@@ -23,7 +23,7 @@ The first step is to create our function written in Python.
     - Click **Test** and the test should succeed.
 
 # Important Notes
-If you create a function URL and try to test it in you will get an internal server error. This is because our Lambda function depends on the API gateway to provide the IP address.
+If you create a function URL and try to test it, you will get an internal server error. This is because our Lambda function depends on the API gateway to provide the IP address.
 
 # Learn More
 ## Minification
@@ -38,4 +38,5 @@ Using both, I created a 1460 byte version of the function, which started at 2.96
 [Instructions for Node.js](2_Lambda_Function_Node.md)
 [Instructions for Ruby](2_Lambda_Function_Ruby.md)
 [Instructions for .NET 8 C#](2_Lambda_Function_DotNet.md)
-
+[Instructions for Java](2_Lambda_Function_Java.md)
+[Instructions for Rust](2_Lambda_Function_Rust.md)
