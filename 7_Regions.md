@@ -126,6 +126,23 @@ Overview
     - As this is an advanced section of the lab, I am allowing you to determine the settings
 8. Click **Create records**
 
+If you enable "evaluate target health" you should create a health check:
+1. Go to the Route 53 console
+2. Click **Create health check**
+    - Name: *the custom domain* (i.e., ipgiraffe.com)
+    - What to monitor: **Endpoint**
+    - Specify the endpoint by: **Domain name**
+    - Protocol: **HTTPS**
+    - Domain name: *your domain name* (i.e., ipgiraffe.com)
+    - Port: 443
+    - Path: *leave blank*
+    - No advanced configuration needed, but you should take a look, and also review the processing
+    - Click **Next**
+    - Create alarm: **NO** unless you really want alerts
+    - Click **Create health check**
+  3. Go back to your Route 53 Latency records. Edit each and set the health check ID to match the one you just created.
+  4. Click **Health checks** and confirm the health check is  Health (green)
+
 #### CloudFront Setup
 1. Browse to (https://console.aws.amazon.com) and log in
 2. In the search bar enter "CloudFront" and click on **CloudFront**
@@ -160,5 +177,6 @@ Use a VPN service (some have free options) that lets you connect through servers
 - Think about pricing model of CloudFront affects your ability to add your application to regions outside US and Europe
 - Consider how additional regions could reduce your Lambda concurrency and possibly keep you in the Lambda "Free Tier"
 - Consider how having an infrequently-used region could cause a "cold start" for user
+- Consider how using Route 53 healtch checks can keep your Lambda functions "warm"
 - Generally think minutes, not hours for the timeout until a "cold start" is required. It's best to assume frequent cold starts.
 - For critical applications, pay for *provisioned concurrency* which keeps a set number if instances "warm" (you are charged for every GB-second <ins>plus</ins> a small fee for each request your Lambda function handles while using provisioned concurrency. This can very per AWS region. Some provisioned concurrency usage may be included in the free tier.
