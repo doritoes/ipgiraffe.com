@@ -71,7 +71,7 @@ Repeat this for each region you are using.
 2. Click **Custom domain names** from the left menu
 3. Click **Create**
     - Domain name: `app.ipgiraffe.com`
-    - API endpoint type: **Edge-optimized (supports on REST APIs)**
+    - API endpoint type: **Regional**
     - ACM certificate: *select the certificate from the dropdown*
       - Note that this request a certificate in us-east-1
     - Click **Create domain name**
@@ -141,33 +141,22 @@ Repeat this for each region you are using.
     - Record Type: Leave as **A - IPv4 Address**
     - Alias: **YES**
     - Route traffic to:
-      - Select **API Gateway REST APIs** from the dropdown menu
-      - Region: Choose the region
-    - Value: Enter the domain name of your API gateway in this region (my example is 59o1ou36kb.execute-api.us-east-1.amazonaws.com)
+      - Select **Alias to API Gateway API** from the dropdown menu
+      - Region: Choose the first region (you will repeat for each region)
+      - Value: Enter the domain name of your API gateway in this region (my example is 59o1ou36kb.execute-api.us-east-1.amazonaws.com)
     - Routing Policy: **Latency**
     - Region: Select your first region (in my case us-east-1)
     - Health check ID - options: **Leave blank**
     - Evaluate target health: **NO** (default) to save cost, or enable to allow Route 53 to monitor your API Gateway endpoint
-    - Record ID: **app-us-east-1**
-7. Click **Add another record** and repeat for your second region (in my case us-west-2)
+    - Record ID: **app-us-east-1** for the first region (you will repeat for each region)
+7. Click **Add another record** and repeat for your second region (in my case us-west-2) and third region
     - As this is an advanced section of the lab, I am allowing you to determine the settings
 8. Click **Create records**
-
-#### CloudFront Setup
-1. Browse to (https://console.aws.amazon.com) and log in
-2. In the search bar enter "CloudFront" and click on **CloudFront**
-3. Note that CloudFront is in the *Global* region
-4. Find and click on your distribution
-5. Click **Edit**
-6. Alternate Domain Names - add the *app* subdomain record (see my example below)
-    - add **app.ipgiraffe.com**
-7. We recreated the Custom SSL certificate. Just make sure it is selected.
-8. Click **Save changes**
 
 ### Testing
 Generate traffic sourced from different global regions, followed by confirming traffic is reaching all regions.
 
-Test the different results of using CloudFront at `ipgiraffe.com` vs DNS latency at `app.ipgiraffe.com`
+Test the different results of using CloudFront at `ipgiraffe.com` vs Route 53 latency at `app.ipgiraffe.com`
 
 #### Generate traffic with Online Speed Test Tools
 These have limited locations, but can quickly generate traffic to your different regions.
