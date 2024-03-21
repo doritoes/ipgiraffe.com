@@ -52,7 +52,7 @@ The current results you will get are JSON. For example:
 ### Integration Response
 1. Click on **Integration response** or select it from the ribbon menu.
 2. Click **Edit**
-3. Expand Mapping templates
+3. Expand *Mapping templates*
 4. Customize the template
     - Content type: <ins>type in</ins> **text/html**
 	  - Template body: [response_template.vtl](response_template.vtl)
