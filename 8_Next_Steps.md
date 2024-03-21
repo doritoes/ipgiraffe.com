@@ -3,6 +3,14 @@ Congratulations on completing this exercise! You have learned and demonstrated s
 
 I recommend you consider the following to expand on your new knowlege. Make some predictions, do the research, then test it to see for yourself.
 
+## Standardize on One Method
+Right now we are incurring the cost of CloudFront, while we have demonstrated that Route 53 doesn't need it when we use Regional API Gateways.
+
+Consider converting to eliminate CloudFront
+- This allows us to use all 3 of our regions, not just 2 with CloudFront
+- We could have multiple CloudFront instances to to use all 3 regions, but at a cose
+- Currently health checks are turned off in Route 53 for our API gateways. What is the effect of this? What cost concerns are there if we turn health checks on?
+
 ## Look into arm64 vs x86_64 Architecture
 What are the cost implications?
 - ARM64 (Graviton2) - cheaper but less x86-specific optimizations
