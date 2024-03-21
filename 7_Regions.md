@@ -7,7 +7,6 @@ Our test application https://www.ipgiraffe.com is running just fine. How can we 
 In this example we are doing to use:
 - us-east-1 (N. Virginia)
 - us-west-2 (Oregon)
-- eu-central-1 (Frankfurt)
 
 Overview:
 - add the Lambda function to each region
@@ -21,7 +20,7 @@ Overview:
 4. Click the dropdown and select the region you want to add
 5. Create the Lambda function (refer to [Create Lambda Function](2_Lambda_Function.md))
 6. Create the API gateway (refer to [Create API Gateway](3_API_Gateway.md))
-7. Navigate the CloudFront in the AWS console
+7. Navigate to CloudFront in the AWS console
     - note the region is *Global* for CloudFront
 8. Select your CloudFront distribution
 9. Click on the *Origins* tab (refer to [Create CloudFront](4_CloudFront.md)
@@ -46,17 +45,45 @@ Overview:
     - Select the *Default* behavior and click **Edit**
     - Change *Origin and origin groups* to **myIP-origin-group**
     - Click **Save changes**
+15. No DNS record changes are required. CloudFront seamlessly servers to both regions
 
 ## Active-Active Regions
-We are going to add our configuration to multiple regions and allow CloudFront to direct users to the closest region.
+In this example we are doing to use:
+- us-east-1 (N. Virginia)
+- us-west-2 (Oregon)
+- eu-central-1 (Frankfurt)
+
+We are going to use `app.ipgiraffe.com` to demonstrate using Route 53 to direct users to the closest (lowest latency) regional API Gateway. This eliminates the CloudFront instance, but for this Lambda function, we are not using the caching capabilities of CloudFront anyways.
 
 Overview
-- create a matching SSL certificate in ACM <ins>in the additional region</ins>
-- configure Route 53 to have two records for the same domain name and set the routing policy to *latency*
+- add a custom domain name to the API gateway
+- create a matching SSL certificate in ACM <ins>in the additional region</ins> which includes the new subdomain
+- update CloudFront to use the new certificates
+- configure Route 53 to have three records for the same domain name and set the routing policy to *latency*
 
 ### Steps
+#### Create Lambda function and API gateway in remaining regions
+Repeat the steps to create deploy the Lambda function and regional gateway in each region you are using for your lab.
+
+#### Add Custon Domain Name to API gateway
+Repeat this for each region you are using.
+1. Navigate to *API Gateway* in the AWS console
+2. Click **Custom domain names** from the left menu
+3. Click **Create**
+    - Domain name: `app.ipgiraffe.com`
+    - API endpoint type: **Edge-optimized (supports on REST APIs)**
+    - ACM certificate: *select the certificate from the dropdown*
+      - Note that this request a certificate in us-east-1
+    - Click **Create domain name**
+4. Select your new custom domain name
+5. Click the **API mappings** tab in the lower pane
+6. Click **Configure API mappings**
+7. Click **Add new mapping**
+    - API: *select your API from the dropdown*
+    - Stage: *select your stage name* (i.e. Prod)
+    - Click **Save**
 #### Re-Create SSL Certificate
-(www.ipgiraffe.com) was initially created in us-east-1. The SSL certificate was therefore created in us-east-1. We need to add a new subdomain to the certificate.
+(www.ipgiraffe.com) was initially created in us-east-1. The SSL certificate was therefore created in us-east-1. We need to create the certificate in all three regions. We need to add a new subdomain `app` to the certificate.
 1. Browse to (https://console.aws.amazon.com) and log in
 2. Make sure you have the correction region selected in the region dropdown
 3. In the search bar enter "certificate" and click on **Certificate Manager**
