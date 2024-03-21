@@ -178,3 +178,9 @@ Use a VPN service (some have free options) that lets you connect through servers
 - Consider how having an infrequently-used region could cause a "cold start" for user
 - Generally think minutes, not hours for the timeout until a "cold start" is required. It's best to assume frequent cold starts.
 - For critical applications, pay for *provisioned concurrency* which keeps a set number if instances "warm" (you are charged for every GB-second <ins>plus</ins> a small fee for each request your Lambda function handles while using provisioned concurrency. This can very per AWS region. Some provisioned concurrency usage may be included in the free tier.
+
+⚠️ Note: In my testing, I found that this configuration did not work as expected:
+- configure the base domain ipgiraffe.link using latency routing to my API gateways
+- configure a "www.ipgiraffe.link" CNAME pointing to ipgiraffe.link
+- this returns a Forbidden error
+- to resolve this, you will need to configure the additional www.ipgiraffe.link custom domain
