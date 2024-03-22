@@ -27,6 +27,7 @@ Here are the goals I have for this project. If you would like to encourage me to
 - Base-64 in-page image of a giraffe
 - Added HTML comments to the source code
 - Created and tested example lambda functions in 7 languages running a variety of runtimes
+- Converted to Route 53 load balancing and removed CloudFront
 ### Might Do
 - Create another site based on GCP serverless computing
 - Create another site based on Azure serverless computing
@@ -60,7 +61,7 @@ More "IP Animals":
 
 My IP address checking web sites:
 - https://ipgiraffe.com
-- https://ipdice.com (under construction)
+- https://ipdice.com
 
 My other web sites:
 - https://unclenuc.com
