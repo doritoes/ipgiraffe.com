@@ -30,7 +30,7 @@ The default settings are what we want: no authorization or API key requirement
 1. Click on **Integration request** or select it from the ribbon menu.
 2. Click **Edit**
   1. Request body passthrough: **Never**
-  2. Expand Mapping templates
+  2. Expand *Mapping templates*
   3. Click **Add mapping template**
   4. Content type: <ins>type in</ins> **application/json** (this is IMPORTANT, you need to fill out this field)
   5. Template body: [mapping_template.vtl](mapping_template.vtl)
@@ -52,7 +52,7 @@ The current results you will get are JSON. For example:
 ### Integration Response
 1. Click on **Integration response** or select it from the ribbon menu.
 2. Click **Edit**
-3. Expand Mapping templates
+3. Expand *Mapping templates*
 4. Customize the template
     - Content type: <ins>type in</ins> **text/html**
 	  - Template body: [response_template.vtl](response_template.vtl)
