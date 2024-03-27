@@ -62,6 +62,7 @@ More "IP Animals":
 My IP address checking web sites:
 - https://ipgiraffe.com
 - https://ipdice.com
+- https://iploc8.com (API)
 
 My other web sites:
 - https://unclenuc.com
