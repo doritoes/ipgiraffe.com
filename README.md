@@ -1,6 +1,8 @@
 # ipgiraffe.com
 How [ipgiraffe.com](https://www.ipgiraffe.com) was built on [AWS Lambda](https://aws.amazon.com/pm/lambda/).
 
+IMPORTANT The web site was decommissioned in September 2025 to reduce AWS costs.
+
 # Overview and Genesis
 After pondering on what would make a good example use case for a Lambda instance, I decided on the simplest use case I could think of. Drawing on inspiration from [ipturtle](http://ipturtle.com) and [ipchicken](https://ipchicken.com), I decided on very simple site that returns the user's IP address. Frequently, I need a client to provide their public IP address. There are many sites loaded with ads. And some make it difficult to find the IP address! I often direct people to [ipchicken](https://ipchicken.com) or [ipdragon](http://ipdragon.com). Now I can offer a simpler alternative!
 
@@ -9,6 +11,7 @@ This demonstration site has the following features:
 - Single function with no external images, scripts, or stylesheets (there is one Google font that is loaded in the browser)
 - Just the IP address, no extra information
 - Extremely cheap to operate (there aren't any logs we have to store to a S3 bucket)
+
 This breaks the mold of the typical Lambda use case
 - Does not return JSON, but instead HTML
 - Not an API with an authentication backend
